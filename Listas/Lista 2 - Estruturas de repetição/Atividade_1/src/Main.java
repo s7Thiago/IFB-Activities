@@ -10,6 +10,7 @@ public class Main
 		
 		do {
 			
+			
 			System.out.println("1 - Peixe\n2 - Feijão\n3 - Macarrão\n4 - Frango");
 			
 			System.out.print("\n\nDigite a opção: ");
