@@ -36,7 +36,7 @@ public class Main {
             } else {
                 //caso contrario, mostre uma mensagem informativa
                 //e some um a variavel que conta as não ordenações
-                System.out.println(vet[i] +  " > " + vet[i + 1]);
+                System.out.println(vet[i] +  " >= " + vet[i + 1]);
                 numNotOrdenedCrescent++;
             }
         }//verificado
@@ -60,7 +60,7 @@ public class Main {
                     //caso contrario, mostre uma mensagem informativa
                     //e some um a variavel que conta as não ordenações
                     numNotOrdenedDecrescent++;
-                    System.out.println(vet[i] +  " < " + vet[i + 1]);
+                    System.out.println(vet[i] +  " <= " + vet[i + 1]);
                 }
             }//verificado
             
