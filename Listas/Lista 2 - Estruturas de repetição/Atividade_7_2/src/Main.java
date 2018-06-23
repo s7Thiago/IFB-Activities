@@ -39,7 +39,7 @@ public class Main {
                 System.out.println(vet[i] +  " > " + vet[i + 1]);
                 numNotOrdened++;
             }
-        }//
+        }//verificado
 		
         //se o numero de não ordenações contado for maior do que zero
         if(numNotOrdened > 0) {
@@ -65,7 +65,7 @@ public class Main {
                     System.out.println(vet[i] +  " < " + vet[i + 1]);
                     numNotOrdened++;
                 }
-            }
+            }//verificado
             
             //se o numero de não ordenações contado for maior do que zero
             if(numNotOrdened > 0) {
