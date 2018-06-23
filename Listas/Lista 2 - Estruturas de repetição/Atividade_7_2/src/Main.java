@@ -5,7 +5,7 @@ public class Main {
 	public static void main(String[] args) {
         
         //declarando variaveis
-        int tam, vet[], numNotOrdened = 0;
+        int tam, vet[], numNotOrdenedCrescent = 0, numNotOrdenedDecrescent = 0;
         
         //armazenando a entrada do teclado em tam
         System.out.print("Digite o numero de elementos: ");
@@ -37,15 +37,12 @@ public class Main {
                 //caso contrario, mostre uma mensagem informativa
                 //e some um a variavel que conta as não ordenações
                 System.out.println(vet[i] +  " > " + vet[i + 1]);
-                numNotOrdened++;
+                numNotOrdenedCrescent++;
             }
         }//verificado
 		
         //se o numero de não ordenações contado for maior do que zero
-        if(numNotOrdened > 0) {
-            
-            //zerando contador de desordenções
-            numNotOrdened = 0;
+        if(numNotOrdenedCrescent > 0) {
             
             //imprima que a coleção não é ordenada em ordem crescente
             System.out.println("\n\nEsta coleção não está ordenada em ordem crescente!");
@@ -53,7 +50,7 @@ public class Main {
             //verifica se o vetor é ordenado em ordem decrescente, já
             //que em relação á ordem crescente foram contabilizadas desordens
             System.out.println("\n\nVerificando se o vetor é \nordenado em ordem decrescente...\n");
-            for(int i = 0; i > vet.length; i--) {
+            for(int i = 0; i < (vet.length - 1); i++) {
                 
                 //se o numero (vet[i]) i do vetor for maior ou igual ao
                 //posterior(vet[i + 1]), somente mostre uma mensagem
@@ -62,14 +59,14 @@ public class Main {
                 } else {
                     //caso contrario, mostre uma mensagem informativa
                     //e some um a variavel que conta as não ordenações
+                    numNotOrdenedDecrescent++;
                     System.out.println(vet[i] +  " < " + vet[i + 1]);
-                    numNotOrdened++;
                 }
             }//verificado
             
             //se o numero de não ordenações contado for maior do que zero
-            if(numNotOrdened > 0) {
-                //avise que o vetor de fato edtá desordenado
+            if(numNotOrdenedDecrescent > 0) {
+                //avise que o vetor de fato está desordenado
                 System.out.println("\n•O vetor realmente não é ordenado!");
             } else {
                 //informe que é ordenado do maior para o menor
