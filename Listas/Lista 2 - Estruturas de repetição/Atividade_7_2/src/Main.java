@@ -70,15 +70,15 @@ public class Main {
             //se o numero de não ordenações contado for maior do que zero
             if(numNotOrdened > 0) {
                 //avise que o vetor de fato edtá desordenado
-                System.out.println("\nO vetor realmente não é ordenado!");
+                System.out.println("\n•O vetor realmente não é ordenado!");
             } else {
                 //informe que é ordenado do maior para o menor
-                System.out.println("\n\nO vetor está ordenado, mas em ordem decrescente.");
+                System.out.println("\n\n•O vetor está ordenado, mas em ordem decrescente.");
             }
             
         } else {
             //se não for maior do que zero, diga que é ordenado
-            System.out.println("\n\nEsta coleção está ordenada em ordem crescente");
+            System.out.println("\n\n•Esta coleção está ordenada em ordem crescente");
         }
 	}
 }
