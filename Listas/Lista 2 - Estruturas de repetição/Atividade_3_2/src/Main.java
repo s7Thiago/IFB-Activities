@@ -17,7 +17,7 @@ public class Main {
 		//e armazenando em result
 		for(int i = 1; i <= n; i++) {
 			
-			result = result += i;
+			result += i;
 		}
 		
 		//imprimindo o valor final de result
