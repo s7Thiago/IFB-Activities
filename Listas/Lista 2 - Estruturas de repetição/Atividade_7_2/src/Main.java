@@ -6,6 +6,7 @@ public class Main {
         
         //declarando variaveis
         int tam, vet[], numNotOrdenedCrescent = 0, numNotOrdenedDecrescent = 0;
+				String separador = "××××××××××××××××××××××××××××××××××××××××××××××××××××";
         
         //armazenando a entrada do teclado em tam
         System.out.print("Digite o numero de elementos: ");
@@ -45,7 +46,7 @@ public class Main {
         if(numNotOrdenedCrescent > 0) {
             
             //imprima que a coleção não é ordenada em ordem crescente
-            System.out.println("\n\nEsta coleção não está ordenada em ordem crescente!");
+            System.out.println("\n\n"+ separador +"\n•Esta coleção não está ordenada em ordem crescente!\n" + separador);
             
             //verifica se o vetor é ordenado em ordem decrescente, já
             //que em relação á ordem crescente foram contabilizadas desordens
@@ -67,15 +68,15 @@ public class Main {
             //se o numero de não ordenações contado for maior do que zero
             if(numNotOrdenedDecrescent > 0) {
                 //avise que o vetor de fato está desordenado
-                System.out.println("\n•O vetor realmente não é ordenado!");
+                System.out.println("\n" + separador + "\n•O vetor realmente não é ordenado!\n" + separador);
             } else {
                 //informe que é ordenado do maior para o menor
-                System.out.println("\n\n•O vetor está ordenado, mas em ordem decrescente.");
+                System.out.println("\n\n" + separador + "\n•O vetor está ordenado, mas em ordem decrescente.\n" + separador);
             }
             
         } else {
             //se não for maior do que zero, diga que é ordenado
-            System.out.println("\n\n•Esta coleção está ordenada em ordem crescente");
+            System.out.println("\n\n" + separador + "\n•Esta coleção está ordenada em ordem crescente\n" + separador);
         }
 	}
 }
