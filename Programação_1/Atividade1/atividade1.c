@@ -2,7 +2,7 @@
 
 //Retorna o fatorial de um número
 int fact(int num) {
-int factResult;
+int factResult = 0;
 
 for(factResult = 1; num > 1; num = num - 1) {
 
@@ -15,8 +15,8 @@ return factResult;
 
 void main() {
 
-    int num;
-    char option;
+    int num = 0;
+    char option = '0';
 
 //Execução do programa
     do{
