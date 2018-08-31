@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1535725700 source:/home/alunotgn/Thiago/GitHub/atividade/atividade31082018/main.c
+	<stdio.h>
+	<stdlib.h>
+
