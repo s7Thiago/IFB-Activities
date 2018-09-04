@@ -1,0 +1,10 @@
+Respostas
+
+
+1) Para um algoritmo escrito com uma linguagem de alto nível como o C ser interpretado
+por um computador, ele precisa ter as suas instruções em alto nível convertidas para
+instruções em baixo nível (linguagem de máquina). Esse processo é realizado por um 
+software especial chamado compilador, que converte as instruções do arquivo fonte para 
+um formato binário, gerando assim, como saída, as mesmas instruções em um formato que 
+pode ser entendido e executado pela CPU.
+
