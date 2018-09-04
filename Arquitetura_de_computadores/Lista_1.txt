@@ -6,5 +6,7 @@ por um computador, ele precisa ter as suas instruções em alto nível convertidas 
 instruções em baixo nível (linguagem de máquina). Esse processo é realizado por um 
 software especial chamado compilador, que converte as instruções do arquivo fonte para 
 um formato binário, gerando assim, como saída, as mesmas instruções em um formato que 
-pode ser entendido e executado pela CPU.
-
+pode ser entendido e executado pela CPU. Temos um processo que analisa passo a passo se
+cada instrução foi escrita com sintaxe conforme as particularidades da liguagem referente,
+caso esteja correta, a mesma é executada. Isso ocorre com cada uma das instruções, até que o
+compilador encontre algo de errado. nesse caso, ele lança uma exceção.
