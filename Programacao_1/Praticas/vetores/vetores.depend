@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1535902839 source:d:\git test workspace\ifb-activities\programacao_1\praticas\vetores\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
