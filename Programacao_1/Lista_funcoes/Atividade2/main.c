@@ -44,7 +44,6 @@ int main() {
     float a, b, c, resultado;
     char operacao;
 
-    do {
     printf("\nDigite a operacao desejada 'A', 'P', ou 'H': ");
     scanf("%c", &operacao);
 
@@ -60,7 +59,6 @@ int main() {
     resultado = calcMedia(a, b, c, operacao);
 
     printf("\n\nResultado: %.2f\n\n", resultado);
-    }while(operacao != 'x');
 
     return 0;
 }
