@@ -1,0 +1,16 @@
+/*                                                                     Função Menu                                           */
+
+
+/*Cabeçalhos das funções de um programa que serve 
+*para exibir um menu genérico funcional na tela
+*/
+
+/*
+*Mostra um menu indexado a partir de uma coleção de palavras
+*
+*	in: char[] opcoes -> Um vetor contendo as opções desejadas para o menu;
+*	in: int qtde -> Especifica quantas opções terão no menu;
+*	out: int -> Esta função retorna o número da opção escolhida pelo usuário.
+*
+/
+int mostrarMenu(char *opcoes[], int qtde);
