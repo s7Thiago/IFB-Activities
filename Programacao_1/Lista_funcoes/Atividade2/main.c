@@ -17,7 +17,7 @@ float calcMedia(float nota1, float nota2, float nota3, char operacao) {
     case 'P':
     case 'p':
         //Calcula a media ponderada
-        mediaPonderada = (((5 * nota1) + (3 * nota2) + (2 * nota3)));
+        mediaPonderada = (((5 * nota1) + (3 * nota2) + (2 * nota3))/3);
         return mediaPonderada;
         break;
 
