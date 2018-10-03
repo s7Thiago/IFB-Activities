@@ -22,6 +22,14 @@ CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/q4
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
 CND_PACKAGE_NAME_Release=q4.tar
 CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/q4.tar
+# lm_configuration configuration
+CND_PLATFORM_lm_configuration=GNU-Linux
+CND_ARTIFACT_DIR_lm_configuration=dist/lm_configuration/GNU-Linux
+CND_ARTIFACT_NAME_lm_configuration=q4
+CND_ARTIFACT_PATH_lm_configuration=dist/lm_configuration/GNU-Linux/q4
+CND_PACKAGE_DIR_lm_configuration=dist/lm_configuration/GNU-Linux/package
+CND_PACKAGE_NAME_lm_configuration=q4.tar
+CND_PACKAGE_PATH_lm_configuration=dist/lm_configuration/GNU-Linux/package/q4.tar
 #
 # include compiler specific variables
 #
