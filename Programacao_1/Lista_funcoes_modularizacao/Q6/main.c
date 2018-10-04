@@ -28,37 +28,47 @@ int  lerNumero(int numero) {
 
 int primo(int numero) {
     
-    int aux = 0, contador = 0;
+    int aux = 1, contador = 0;
     
-    while(aux <= numero) {
+    while(aux < numero) {
         
-        if(numero % aux != 0) {
+        if((numero % aux) == 0) {
             
             contador++;
         }
     
         aux++;
-        
-        if(contador > 0) {
+    }
+    
+     if(contador > 2) {
             
-            return 1;
+            return 0;
         
         }
+
+    return 1;
+}
+
+void imprime(int valor, int p) {
+    
+    if(primo(valor) == 0) {
+        
+        printf("\n\nNao eh primo\n\n");
+    
+    } else {
+        
+    printf("\n\nEh primo\n\n");
+    
     }
 
-    return 0;
 }
 
 int main() {
     int numero;
     
     puts("Digite um numero: ");
-    numero = lerNumero(numero);
+    imprime(lerNumero(numero), primo(numero));
     
-    printf("\n\nO número digitado foi %i.\n\n", numero);
-    
-    
-
     return 0;
 }
 
