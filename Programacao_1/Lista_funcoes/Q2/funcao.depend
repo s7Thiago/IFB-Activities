@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1537413466 source:c:\users\gervasio\documents\workspace\github\ifb\programacao\lista_funcoes\funcao\main.c
+	<stdio.h>
+	<stdlib.h>
+
