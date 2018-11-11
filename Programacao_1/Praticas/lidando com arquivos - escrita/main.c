@@ -32,7 +32,22 @@ int main() {
     //Fechando o arquivo depois de ter concluido as operacoes anteriores
     fclose(arquivo);
 
-    printf("\n\n\nGravacao dos dados no arquivo concludida!!!              \n\n:-D\n\n");
+    printf("\n\n\nGravacao dos dados no arquivo concluida!!!              \n\n:-D\n\n");
+    printf("Lendo o que esta no arquivo...\n\n");
 
+    //Para ler o arquivo nao eh complicado. basta usar a funcao getc() co m um laço de repeticao.
+    //Assim podemos percorrer o arquivo com ela, exibindo o que for encontrado pelo caminho, ate
+    // encontrarmos o fim dessa forma:
+
+    //Abrindo o arquivo com permissao de leitura somente
+    arquivo = fopen("meu_arquivo.txt", "r");
+
+    while(fgets(content, 50, arquivo) != NULL);
+    printf("%s", content);
+
+    //Fechando o fluxo para liberar o arquivo
+    fclose(arquivo);
+
+    getch();
     return 0;
 }
