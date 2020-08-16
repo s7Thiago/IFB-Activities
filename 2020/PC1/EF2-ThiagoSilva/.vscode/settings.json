@@ -1,6 +1,8 @@
 {
     "cSpell.words": [
         "atoi",
+        "printf",
+        "stdlib",
         "strcat",
         "strcmp",
         "strcpy",
