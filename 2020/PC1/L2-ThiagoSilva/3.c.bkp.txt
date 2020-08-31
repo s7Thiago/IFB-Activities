@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <string.h>
+
+#define LIMIT 200
+
+// Retorna o tamanho de uma string
+int strlength(char* target) {
+	int size = 0;
+	while(target[size] != '\0'){
+	size++;
+	}
+	
+	return size;
+}
+
+char* removeSequence(char target[LIMIT], char sequence[LIMIT]){
+	int targetSize = strlength(target);
+	int sequenceSize = strlength(sequence);
+	int countRecurrences = 0;
+
+	// percorre toda a sequencia alvo
+	for(int i = 0; i < targetSize; i++){
+		// Percorre intervalos do tamanho do termo procurado em busca de correspondencias
+		for (int j = 0;j < sequenceSize;j++){
+			char deletionSearch[sequenceSize + 1];
+			
+			if(i < targetSize - 1){
+				printf("target[%c] sequence[%c]\n", target[i], sequence[j]);
+				if(target[i] == sequence[j]) {
+					printf("corresp: %c\n", target[i]);
+				}
+			}
+			
+			// monta a base de pesquisa em cima da sequencia procurada
+//			for (int k = i; k < sequenceSize; k++){
+//				// Adiciona o fim da string de comparação
+//				if(k == 0) deletionSearch[sequenceSize] = '\0';
+			
+//				deletionSearch[k] = target[k];
+				
+//			}
+			
+			//printf("searching: %s (%d)\n", deletionSearch, sequenceSize);
+			//Limpar o espaço de pesquisa
+			memset(deletionSearch, 0, sequenceSize);
+		}
+	}
+}
+
+int main(void){
+
+	char* target = "Arara azul bem rara";
+	char* result = removeSequence(target, "ra");
+
+	return 0;
+}
