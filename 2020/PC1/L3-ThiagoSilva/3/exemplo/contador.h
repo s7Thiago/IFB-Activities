@@ -1,0 +1,2 @@
+
+void incrementar_contador();
