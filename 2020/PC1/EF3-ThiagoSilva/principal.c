@@ -1,6 +1,5 @@
-#include <stdio.h>
-
-//#include "turma.h"
+#include "alunos.h"
+#include "turma.h"
 
 char menu[][35] = {
 	"========= --- =========\n",
@@ -24,6 +23,8 @@ void printMenu(){
 int main (void) {
 
 	int option = 0;
+	int indexTurma = 0;
+	char nomeAluno[TAM_NOME_ALUNO];
 	
 	do{
 	
@@ -35,22 +36,42 @@ int main (void) {
 		switch(option){
 		
 			case 1:
+				cadastrarTurma();
+			
+				printf("Nova turma inserida\n");
+				printTurmas();
 			break;
 			
 			case 2:
+				printf("Nome > ");
+				scanf("%s", nomeAluno);
+				cadastrarNovoAluno(nomeAluno);
+			
 			break;
 			
 			case 3:
+				printf("Turma > ");
+				scanf("%d", &indexTurma);
+			
+				printf("Nome > ");
+				scanf("%s", nomeAluno);
+			
+				incluirAlunoNaTurma(indexTurma, nomeAluno);
+				
 			break;
 			
 			case 4:
+				printf("Índice > ");
+				scanf("%d", &indexTurma);
+			
+				exibirAlunos(indexTurma);
 			break;
 			
 			case 5:
 			break;
 			
 			default:
-			printf("Opção desconhecida");
+				printf("Opção desconhecida");
 		}
 	
 	}while(option != 5);

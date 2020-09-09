@@ -1,10 +1,26 @@
-all: rm principal run
+all: rm principal clear run
 
-principal:
-	gcc principal.c -o principal
+principal: turma.o
+	gcc principal.c turma.o alunos.o -o principal
 
-rm:
+turma.o: alunos.o
+	gcc -c turma.c
+
+alunos.o:
+	gcc -c alunos.c
+
+rm: rmo rmain
+	
+rmo:
+	rm *.o
+	
+rmain:
 	rm principal
 	
 run:
 	./principal
+	
+clear:
+	clear
+	
+	
