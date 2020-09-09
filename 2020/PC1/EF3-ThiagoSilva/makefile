@@ -1,6 +1,6 @@
-all: rm main clear run
+all: rm build clear run
 
-main: turma.o
+build: turma.o
 	gcc principal.c turma.o alunos.o -o setup
 
 turma.o: alunos.o
@@ -10,6 +10,8 @@ alunos.o:
 	gcc -c alunos.c
 
 rm: rmo rmain
+
+cls: rm clear
 	
 rmo:
 	rm *.o
@@ -22,5 +24,3 @@ run:
 	
 clear:
 	clear
-	
-	
