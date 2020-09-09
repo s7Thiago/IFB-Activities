@@ -1,7 +1,7 @@
-all: rm principal clear run
+all: rm main clear run
 
-principal: turma.o
-	gcc principal.c turma.o alunos.o -o principal
+main: turma.o
+	gcc principal.c turma.o alunos.o -o setup
 
 turma.o: alunos.o
 	gcc -c turma.c
@@ -15,10 +15,10 @@ rmo:
 	rm *.o
 	
 rmain:
-	rm principal
+	rm setup
 	
 run:
-	./principal
+	./setup
 	
 clear:
 	clear
