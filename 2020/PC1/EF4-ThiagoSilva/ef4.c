@@ -4,12 +4,21 @@
 #define TAM_NAME 25
 #define MAX_SONGS 10
 
-char menu[4][TAM_NAME] = {
+char menu[4][TAM_NAME * 2] = {
 	"1 - Criar o álbum musical",
 	"2 - Adicionar música ao álbum",
 	"3 - Listar músicas do álbum",
 	"4 - Sair"
 };
+
+//Imprime o menu de opções
+void showMenu() {
+	for (int i = 0; i < 4; i++){
+		printf("%s\n", menu[i]);
+	}
+	
+	printf("\n");
+}
 
 //struct musica
 	struct musica{
@@ -24,17 +33,21 @@ char menu[4][TAM_NAME] = {
 		char nomeAlbum[TAM_NAME];
 		char generoMusical[TAM_NAME];
 		int qtdeMusicas;
-		musica musicas[MAX_SONGS]
+		struct musica musicas[MAX_SONGS];
 	}album;
 
-int main (void) {	
-	do{
+int main (void) {
+
 	int option;
+	
+	do{
+	//
+	showMenu();
 	
 	printf("Escolha > ");
 	scanf("%d", &option);
 	
-	switch() {
+	switch(option) {
 	
 	case 1:
 	break;
@@ -52,7 +65,7 @@ int main (void) {
 		printf("Opção inválida");
 	}
 	
-	}while();
+	}while(option != 4);
 	
 	return 0;
 }
