@@ -29,7 +29,7 @@ void showMenu() {
 		char nomeMusica[TAM_NAME];
 		char duracao[MAX_SONGS];
 	
-	}musica;
+	};
 
 //struct album
 	struct album{
@@ -83,8 +83,57 @@ void novoAlbum(){
 	target.nomeAlbum, target.generoMusical, target.qtdeMusicas);
 }
 
+// Cria uma nova musica
+void novaMusica(int index){
+	// nomeMusica, duracao
+	struct musica faixa;
+	
+	char nome[TAM_NAME];
+	char duracao[MAX_SONGS];
+	
+	faixa.id = index + 1;
+	
+	printf("Nome > ");
+	scanf("%s", faixa.nomeMusica);
+	
+	printf("Duração (MM:SS) > ");
+	scanf("%s", faixa.duracao);
+	
+	//Associando
+	target.musicas[index] = faixa;
+}
+
+int indexMusica(){
+	int indexValue = 0;
+	for (int i = 0; i < MAX_SONGS; i++){
+		if(target.musicas[i].nomeMusica[0] != '\0') {
+			indexValue++;
+		}
+	}
+	
+	return indexValue;
+}
+
+// Adiciona uma nova musica ao album
 void adicionarMusica() {
 	
+	if(target.qtdeMusicas < MAX_SONGS) {
+		int id = indexMusica();
+		
+		printf("\n\nmusicas: %d\n\n", id);
+		novaMusica(id);
+		
+	} else {
+		printf("\n\nERRO: Número máximo de músicas atingido\n\n");
+	}
+}
+
+void listarMusicas(){
+
+	for (int i = 0; i < indexMusica(); i++){
+		printf("%d - %s\n", target.musicas[i].id, target.musicas[i].nomeMusica);
+	}
+
 }
 
 int main (void) {
@@ -105,17 +154,14 @@ int main (void) {
 		break;
 	
 		case 2:
+		adicionarMusica();
 		break;
 	
 		case 3:
+			listarMusicas();
 		break;
 	
 		case 4:
-		break;
-	
-		case 5:
-			printf("\nINFO:\nnome: %s\ngenero: %s\nfaixas: %d\n", 
-			target.nomeAlbum, target.generoMusical, target.qtdeMusicas);
 		break;
 	
 		default:
