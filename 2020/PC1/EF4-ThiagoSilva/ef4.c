@@ -27,9 +27,32 @@ char menu[4][TAM_NAME] = {
 		musica musicas[MAX_SONGS]
 	}album;
 
-int main (void) {
+int main (void) {	
+	do{
+	int option;
 	
+	printf("Escolha > ");
+	scanf("%d", &option);
 	
+	switch() {
+	
+	case 1:
+	break;
+	
+	case 2:
+	break;
+	
+	case 3:
+	break;
+	
+	case 4:
+	break;
+	
+	default:
+		printf("Opção inválida");
+	}
+	
+	}while();
 	
 	return 0;
 }
