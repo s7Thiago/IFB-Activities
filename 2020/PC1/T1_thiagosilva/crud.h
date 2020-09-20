@@ -5,6 +5,9 @@
 #define MAIN_MENU_OPTIONS_LIMIT 6
 
 // Exibe o menu principal
-void showMainMenu();
+void showMainMenu(char menu[][MAIN_MENU_CHARACTERS_LIMIT]);
+
+//
+void newProduct();
 
 #endif

@@ -1,16 +1,5 @@
 #include "produto.h"
 
-// struct produto
-struct produto{
-	char name[PRODUCT_NAME_SIZE];
-	char country[PRODUCT_NAME_SIZE];
-	int qtde;
-	char code[PRODUCT_CODE_SIZE];
-};
-
-struct produto produtos[PRODUCT_LIST_SIZE];
-
-
 // Converte letra maiúscula em minúscula
 char lowerToUpperChar(char target){
 
@@ -40,9 +29,14 @@ void toString(char str[], int num) {
     str[len] = '\0';
 }
 
-char* generateProductCode(char* country, int productIndex){
+void generateProductCode(char target[], char* country, int productIndex){
 	
 	char code[PRODUCT_CODE_SIZE];
+	
+	//Limpando code;
+	for (int i = 0; i < PRODUCT_CODE_SIZE; i++){
+		code[i] = '\0';
+	}
 	
 	// Extraindo os 2 primeiros caracteres do país
 	char pp[3];
@@ -56,14 +50,17 @@ char* generateProductCode(char* country, int productIndex){
 	
 	//Anexando o indice do produto recebido ao codigo
 	char aux[2];
-		
-	toString(aux, productIndex);
+	
+	toString(aux, productIndex); // convertendo o indece para string e armazenando em aux
 		
 	if(productIndex < 10) strcat(code, "00");
 	if(productIndex < 100 && productIndex > 9)strcat(code, "0");
 	strcat(code, aux);
-
-	return strcat(code, "\0");
+	
+	//Copiando o conteúdo de code para target
+	for (int j = 0; j < PRODUCT_CODE_SIZE; j++){
+		target[j] = code[j];
+	}
 }
 
 

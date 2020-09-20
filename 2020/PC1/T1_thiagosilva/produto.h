@@ -10,6 +10,18 @@
 #include <stdio.h>
 #include <string.h>
 
-char* generateProductCode(char* country, int productIndex);
+// struct produto
+typedef struct produto{
+	int qtde;
+	char name[PRODUCT_NAME_SIZE];
+	char country[PRODUCT_NAME_SIZE];
+	char code[PRODUCT_CODE_SIZE];
+	char end;
+}produto;
+
+// Products list
+produto produtos[PRODUCT_LIST_SIZE];
+
+void generateProductCode(char target[], char* country, int productIndex);
 
 #endif
