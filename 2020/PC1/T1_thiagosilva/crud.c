@@ -38,22 +38,21 @@ void mockProducts(){
 	//
 	strcpy(produtos[0].name, "Leite");
 	strcpy(produtos[0].country, "Brasil");
-	produtos[0].qtde = 150;
+	produtos[0].qtde = 123;
 	generateProductCode(code, produtos[0].country, 1);
 	strcpy(produtos[0].code, code);
 	
 	//
 	strcpy(produtos[1].name, "Smartwatch");
 	strcpy(produtos[1].country, "China");
-	produtos[1].qtde = 150;
+	produtos[1].qtde = 456;
 	generateProductCode(code, produtos[1].country, 2);
 	strcpy(produtos[1].code, code);
-	printf("Testando quantidade: %d", produtos[1].qtde);/////////////////
 	
 	//
 	strcpy(produtos[2].name, "Perfume");	
 	strcpy(produtos[2].country, "Alemanha");
-	produtos[2].qtde = 150;
+	produtos[2].qtde = 789;
 	generateProductCode(code, produtos[2].country, 3);
 	strcpy(produtos[2].code, code);
 	
@@ -99,11 +98,53 @@ void allProducts() {
 }
 
 void newProduct(){
+	char name[PRODUCT_NAME_SIZE];
+	char country[PRODUCT_NAME_SIZE];
+	int qtde;
+	char code[PRODUCT_CODE_SIZE];
 
 	// Cadastrando produtos para teste
 	mockProducts();
-	int lastProdIndex = lastProductIndex();
 	
+	// Mostra detalhes de todos os produtos cadastrados
+	allProducts();
+	
+	// Pegando o indice do ultimo produto cadastrado
+	int lastProdIndex = lastProductIndex() + 1;
+	
+	// Recebendo os dados do novo produto
+	printf("	Nome > ");
+	scanf("%s", name);
+	
+	printf("	País > ");
+	scanf("%s", country);
+	getchar();
+	
+	printf("	Quantidade > ");
+	scanf("%d", &qtde);
+	
+	//Atribuindo dados
+	produto newProduct;
+	
+	strcpy(newProduct.name, name);
+	newProduct.qtde = qtde;
+	strcpy(newProduct.country, country);
+	
+	// atribuindo o código ao produto em questão
+	generateProductCode(code, country, lastProdIndex);
+	printf("\n\nGerando Code [ %s ]\n\n", code);
+	
+	//Removendo 3 caracteres finais desnecessários do codigo
+	for (int i = PRODUCT_CODE_SIZE; i < PRODUCT_CODE_SIZE + 3;i++){
+		code[i] = '\0';
+	}
+	
+	strcpy(newProduct.code, code);
+	
+	//Inserindo o produto na lista
+	produtos[lastProdIndex] = newProduct;
+	
+	// Mostra detalhes de todos os produtos cadastrados
 	allProducts();
 	
 	
