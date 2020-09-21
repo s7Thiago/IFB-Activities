@@ -132,7 +132,7 @@ void newProduct(){
 	
 	// atribuindo o código ao produto em questão
 	generateProductCode(code, country, lastProdIndex);
-	printf("\n\nGerando Code [ %s ]\n\n", code);
+	
 	
 	//Removendo 3 caracteres finais desnecessários do codigo
 	for (int i = PRODUCT_CODE_SIZE; i < PRODUCT_CODE_SIZE + 3;i++){
