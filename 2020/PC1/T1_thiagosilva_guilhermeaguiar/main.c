@@ -2,13 +2,14 @@
 #include "crud.h"
 
 int main (void) {
+
 	
 	extern int option;
 	extern char mainMenu[][MAIN_MENU_CHARACTERS_LIMIT];
 	extern char updateProductInfoMenu[][MAIN_MENU_CHARACTERS_LIMIT];
 	
 	do{
-		showMenu(mainMenu);
+		showMenu(mainMenu, 6);
 	
 		printf("\nEscolha > ");
 		scanf("%d", &option);

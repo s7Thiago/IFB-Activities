@@ -18,8 +18,8 @@ char updateProductInfoMenu[][MAIN_MENU_CHARACTERS_LIMIT] = {
 	"	3 - Adicionar mais itens;",
 };
 
-void showMenu(char menu[][MAIN_MENU_CHARACTERS_LIMIT]){
-	for (int i = 0; i < MAIN_MENU_OPTIONS_LIMIT; i++){
+void showMenu(char menu[][MAIN_MENU_CHARACTERS_LIMIT], int size){
+	for (int i = 0; i < size; i++){
 		printf("%s\n", menu[i]);
 	}
 }
@@ -37,7 +37,7 @@ void mockProducts(){
 
 	//
 	strcpy(produtos[0].name, "Leite");
-	strcpy(produtos[0].country, "Brasioe");
+	strcpy(produtos[0].country, "Brasil");
 	produtos[0].qtde = 123;
 	generateProductCode(code, produtos[0].country, 1);
 	strcpy(produtos[0].code, code);
@@ -179,8 +179,8 @@ void updateProduct(){
 	productIndex = getProductIndexFromCode(localCode);
 	
 	if(productIndex != -1) {
-		showMenu(updateProductInfoMenu);
-		printf("	Escolha > ");
+		showMenu(updateProductInfoMenu, 3);
+		printf("\n	Escolha > ");
 		scanf("%d", &updateProductOptions);
 		
 	} else {
@@ -194,12 +194,6 @@ void queryProduct(){
 	char nomeProduto [PRODUCT_CODE_SIZE];
 	printf("Codigo do Produto: ");
 	 scanf("%s",nomeProduto);
-
-
-
-
-
-
 
 };
 
