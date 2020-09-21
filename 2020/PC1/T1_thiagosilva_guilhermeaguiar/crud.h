@@ -10,4 +10,8 @@ void showMainMenu(char menu[][MAIN_MENU_CHARACTERS_LIMIT]);
 //
 void newProduct();
 
+
+//Consulta Produto pelo codigo
+void queryProduct();
+
 #endif
