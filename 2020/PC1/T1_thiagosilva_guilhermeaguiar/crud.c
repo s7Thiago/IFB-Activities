@@ -190,26 +190,43 @@ void updateProduct(){
 }
 
 
+//Imprimindo produtos encontrado
+void imprimirProduto(int i) {
+	printf("\n");
+	
+		if(produtos[i].code[0] != '\0'){
+			printf("\tNome do Produto: %s\n\tPais de Origem: %s\n\tQuantidade de Itens: %d\n\tCodigo: %s\n\n",
+				produtos[i].name, 
+				produtos[i].country,
+				produtos[i].
+				qtde,produtos[i].code);
+				
+		
+	}
+}
+
+
 //Funcao para consulta Produto pelo codigo
 void queryProduct(){
-	char nomeProduto [PRODUCT_CODE_SIZE];
-	printf("Codigo do Produto: ");
-	 scanf("%s",nomeProduto);
+	char Code[PRODUCT_CODE_SIZE];
+	int productIndex;
+	
+	mockProducts();
 
+	printf("\tCodigo do Produto: ");
+	 scanf("%s",Code);
 
-	allProducts();
-
-
-
-
+	productIndex = getProductIndexFromCode(Code);
+	
+	if(productIndex != -1) {
+		
+	imprimirProduto(productIndex);
+		
+	} else {
+		printf("\n\tCódigo inválido!\n");
+	}
 
 };
-
-
-
-
-
-
 
 
 
