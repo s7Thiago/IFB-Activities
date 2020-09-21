@@ -18,7 +18,7 @@ char updateProductInfoMenu[][MAIN_MENU_CHARACTERS_LIMIT] = {
 	"	3 - Adicionar mais itens;",
 };
 
-void showMainMenu(char menu[][MAIN_MENU_CHARACTERS_LIMIT]){
+void showMenu(char menu[][MAIN_MENU_CHARACTERS_LIMIT]){
 	for (int i = 0; i < MAIN_MENU_OPTIONS_LIMIT; i++){
 		printf("%s\n", menu[i]);
 	}
@@ -37,7 +37,7 @@ void mockProducts(){
 
 	//
 	strcpy(produtos[0].name, "Leite");
-	strcpy(produtos[0].country, "Brasil");
+	strcpy(produtos[0].country, "Brasioe");
 	produtos[0].qtde = 123;
 	generateProductCode(code, produtos[0].country, 1);
 	strcpy(produtos[0].code, code);
@@ -74,7 +74,7 @@ void mockProducts(){
 int lastProductIndex(){
 	int productIndex = 0;
 	
-	for (int i = 0; i < PRODUCT_LIST_SIZE - 990; i++){
+	for (int i = 0; i < PRODUCT_LIST_SIZE; i++){
 		if(produtos[i].code[0] != '\0'){
 		productIndex++;
 		}	
@@ -86,7 +86,7 @@ int lastProductIndex(){
 // Mostra os detalhes de todos os produtos inseridos
 void allProducts() {
 	printf("\n\n");
-	for (int i = 0; i < PRODUCT_LIST_SIZE - 990; i++){
+	for (int i = 0; i < PRODUCT_LIST_SIZE; i++){
 		if(produtos[i].code[0] != '\0'){
 			printf("===== %s [ %s ]\nCountry: %s\nQuantity: %d\n\n",
 				produtos[i].name, 
@@ -96,6 +96,19 @@ void allProducts() {
 		}	
 	}
 }
+
+// Retorna o índice do produto se existir, caso contrário retorna -1
+int getProductIndexFromCode(char* searchedCode){
+	int index = -1;
+	
+	for (int i = 0; i < PRODUCT_LIST_SIZE; i++){
+		if(strcmp(searchedCode, produtos[i].code) == 0){
+			return i;
+		}
+	}
+	return index;
+}
+
 
 void newProduct(){
 	char name[PRODUCT_NAME_SIZE];
@@ -146,9 +159,33 @@ void newProduct(){
 	
 	// Mostra detalhes de todos os produtos cadastrados
 	allProducts();
+}
+
+void updateProduct(){
+	char localCode[PRODUCT_CODE_SIZE];
+	int productIndex;
 	
+	// Cadastrando produtos para teste
+	mockProducts();
 	
+	// Mostra detalhes de todos os produtos cadastrados
+	allProducts();
 	
+	// Recebendo o código
+	printf("Código > ");
+	scanf("%s", localCode);
+	
+	// Procurando o índice
+	productIndex = getProductIndexFromCode(localCode);
+	
+	if(productIndex != -1) {
+		showMenu(updateProductInfoMenu);
+		printf("	Escolha > ");
+		scanf("%d", &updateProductOptions);
+		
+	} else {
+		printf("\nCódigo inválido!\n");
+	}
 }
 
 

@@ -4,14 +4,11 @@
 int main (void) {
 	
 	extern int option;
-	extern int updateProductOptions;
 	extern char mainMenu[][MAIN_MENU_CHARACTERS_LIMIT];
 	extern char updateProductInfoMenu[][MAIN_MENU_CHARACTERS_LIMIT];
 	
-	//printf("\nResult: %s\n\n", generateProductCode("brasil", 12));
-	
 	do{
-		showMainMenu(mainMenu);
+		showMenu(mainMenu);
 	
 		printf("\nEscolha > ");
 		scanf("%d", &option);
@@ -22,9 +19,8 @@ int main (void) {
 			break;
 		
 			case 2:
-				showMainMenu(updateProductInfoMenu);
-				printf("	Escolha > ");
-				scanf("%d", &updateProductOptions);
+				updateProduct();
+				
 			break;
 			
 			case 3:

@@ -5,7 +5,7 @@
 
 #define PRODUCT_CODE_SIZE 8
 #define PRODUCT_NAME_SIZE 50
-#define PRODUCT_LIST_SIZE 999
+#define PRODUCT_LIST_SIZE 10
 
 #include <stdio.h>
 #include <string.h>
