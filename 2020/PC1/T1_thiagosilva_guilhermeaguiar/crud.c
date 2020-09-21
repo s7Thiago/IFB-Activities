@@ -42,14 +42,14 @@ void mockProducts(){
 	generateProductCode(code, produtos[0].country, 1);
 	strcpy(produtos[0].code, code);
 	
-	//
+	// //
 	strcpy(produtos[1].name, "Smartwatch");
 	strcpy(produtos[1].country, "China");
 	produtos[1].qtde = 456;
 	generateProductCode(code, produtos[1].country, 2);
 	strcpy(produtos[1].code, code);
 	
-	//
+	// //
 	strcpy(produtos[2].name, "Perfume");	
 	strcpy(produtos[2].country, "Alemanha");
 	produtos[2].qtde = 789;
@@ -187,6 +187,21 @@ void updateProduct(){
 		printf("\nCódigo inválido!\n");
 	}
 }
+
+
+//Funcao para consulta Produto pelo codigo
+void queryProduct(){
+	char nomeProduto [PRODUCT_CODE_SIZE];
+	printf("Codigo do Produto: ");
+	 scanf("%s",nomeProduto);
+
+
+
+
+
+
+
+};
 
 
 

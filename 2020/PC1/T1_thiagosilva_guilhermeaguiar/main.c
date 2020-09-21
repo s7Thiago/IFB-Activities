@@ -27,6 +27,8 @@ int main (void) {
 			break;
 		
 			case 4:
+			//Função cosulta produto pelo codigo
+			queryProduct();
 				
 			break;
 		
