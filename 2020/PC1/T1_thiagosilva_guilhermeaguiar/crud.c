@@ -13,9 +13,9 @@ char mainMenu[][MAIN_MENU_CHARACTERS_LIMIT] = {
 
 int updateProductOptions = 0;
 char updateProductInfoMenu[][MAIN_MENU_CHARACTERS_LIMIT] = {
-	"	1 - Alterar nome;",
-	"	2 - Alterar país de origem;",
-	"	3 - Adicionar mais itens;",
+	"\t1 - Alterar nome:",
+	"\t2 - Alterar país de origem:",
+	"\t3 - Adicionar mais itens:",
 };
 
 void showMenu(char menu[][MAIN_MENU_CHARACTERS_LIMIT]){
@@ -180,8 +180,9 @@ void updateProduct(){
 	
 	if(productIndex != -1) {
 		showMenu(updateProductInfoMenu);
-		printf("	Escolha > ");
+		printf("\tEscolha > ");
 		scanf("%d", &updateProductOptions);
+	
 		
 	} else {
 		printf("\nCódigo inválido!\n");
@@ -196,6 +197,7 @@ void queryProduct(){
 	 scanf("%s",nomeProduto);
 
 
+		allProducts();
 
 
 
