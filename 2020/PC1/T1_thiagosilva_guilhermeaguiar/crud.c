@@ -287,7 +287,7 @@ void subtrairquantidade(int qtde, int productIndex)
 	}
 }
 
-//vender Produto
+// Vende um produto
 void sellProduct()
 {
 
@@ -326,7 +326,7 @@ void sellProduct()
 	}
 }
 
-//Imprimindo produtos encontrado
+// Imprimindo produtos encontrados
 void imprimirProduto(int i)
 {
 	printf("\n");
@@ -340,7 +340,7 @@ void imprimirProduto(int i)
 	}
 }
 
-//Função para consulta Produto pelo código
+// Consulta um produto pelo código
 void queryProduct()
 {
 	char Code[PRODUCT_CODE_SIZE];
@@ -364,7 +364,7 @@ void queryProduct()
 	}
 };
 
-//Imprimir o código e a quantidade
+// Imprime o código e a quantidade de todos os produtos
 void printCodeQt()
 {
 	printf("\n");
@@ -380,7 +380,7 @@ void printCodeQt()
 	printf("\n");
 }
 
-//Função Consulta todos os produtos
+// Mostra detalhes de  todos os produtos
 void consultAllProducts()
 {
 

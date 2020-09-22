@@ -15,10 +15,10 @@ void updateProduct();
 //Vender Produto
 void sellProduct();
 
-//Consulta Produto pelo codigo
+//Consulta Produto pelo código
 void queryProduct();
 
-//Funcao Consulta todos os produtos
+//Função Consulta todos os produtos
 void consultAllProducts();
 
 #endif
