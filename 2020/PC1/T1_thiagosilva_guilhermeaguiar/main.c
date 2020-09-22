@@ -37,6 +37,7 @@ int main (void) {
 			break;
 		
 			case 6:
+			
 			break;
 		
 			default:

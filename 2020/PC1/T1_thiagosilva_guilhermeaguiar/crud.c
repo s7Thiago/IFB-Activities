@@ -163,7 +163,13 @@ void newProduct(){
 
 void updateProduct(){
 	char localCode[PRODUCT_CODE_SIZE];
+	char name[PRODUCT_NAME_SIZE];
+	char country[PRODUCT_NAME_SIZE];
+	int qtdeAdd = 0;
 	int productIndex;
+	//
+	char trailing[3];
+	char leading[2];
 	
 	// Cadastrando produtos para teste
 	mockProducts();
@@ -183,6 +189,45 @@ void updateProduct(){
 		printf("\tEscolha > ");
 		scanf("%d", &updateProductOptions);
 	
+		
+		switch(updateProductOptions){
+			case 1: // Alterar nome
+			
+				// Recebendo o código
+				printf("\tNovo nome > ");
+				scanf("%s", name);
+			
+				//Limpando o valor antigo
+				for (int i = 0; i < strlen(produtos[productIndex].name); i++){
+					produtos[productIndex].name[i] = '\0';
+				}
+				
+				//Cadastrando o nome
+				strcpy(produtos[productIndex].name, name);
+			break;
+			
+			case 2: // Alterar país de origem
+				printf("\tNova origem > ");
+				scanf("%s", country);
+				
+				// A alteração só acontece se a nova origem for diferente da antiga
+				if(strcmp(country, produtos[productIndex].country) != 0) {
+					 
+				}
+				
+			break;
+			
+			case 3: // Adicionar mais itens
+				printf("\tQuantidade > ");
+				scanf("%d", &qtdeAdd);
+				
+				// Adicionando quantidade recebida
+				produtos[productIndex].qtde += qtdeAdd;
+			break;
+			
+			default:
+			break;
+		}
 		
 	} else {
 		printf("\nCódigo inválido!\n");
@@ -227,6 +272,7 @@ void queryProduct(){
 	}
 
 };
+
 
 
 
