@@ -281,18 +281,12 @@ void subtrairquantidade(int qtde, int productIndex)
 
 	produtos[productIndex].qtde -= qtde;
 
-<<<<<<< HEAD
 	if (produtos[productIndex].qtde == 0){
 		cleanString(produtos[productIndex].name, strlen(produtos[productIndex].name));
 		cleanString(produtos[productIndex].country, strlen(produtos[productIndex].country));
 	
 		
 
-=======
-	if (produtos[productIndex].qtde == 0)
-	{
-		printf("Excluir\n");
->>>>>>> b9dd7619d3584365aae4be56de0ee046170ad73f
 	}
 }
 
