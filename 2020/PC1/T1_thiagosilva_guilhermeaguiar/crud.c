@@ -228,7 +228,6 @@ void updateProduct()
 				cleanString(trailing, 6);
 
 				// Salvando a parte que não vai mudar no novo código
-				printf("\t\tTESTE: ");
 				for (int i = 2; i < 8; i++)
 				{
 
@@ -240,8 +239,6 @@ void updateProduct()
 				{
 					trailing[j] = '\0';
 				}
-
-				printf("\n\nTRAILING: %s\n\n", trailing);
 			}
 
 			// Extraindo os 2 primeiros caracteres do país
@@ -258,8 +255,6 @@ void updateProduct()
 			// Atribuindo o novo país
 			cleanString(produtos[productIndex].country, strlen(produtos[productIndex].country));
 			strcpy(produtos[productIndex].country, country); //Copia o novo país para a propriedade no produto
-
-			printf("\n\nNOVO CÓDIGO: %s\n\n", produtos[productIndex].code);
 
 			break;
 
