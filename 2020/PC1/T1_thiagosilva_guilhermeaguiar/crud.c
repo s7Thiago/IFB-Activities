@@ -237,7 +237,24 @@ void updateProduct(){
 
 //vender Produto
 void sellProdutct(){
-	queryProduct();
+
+	char Code[PRODUCT_CODE_SIZE];
+	int productIndex;
+	
+	mockProducts();
+
+	printf("\tCodigo do Produto: ");
+	 scanf("%s",Code);
+
+	productIndex = getProductIndexFromCode(Code);
+	if (productIndex != -1){
+		printf("Digite a quantidade de itens vende");
+	}else
+	{
+		printf("\n\tCódigo inválido!\n\n");
+	}
+	
+	
 	
 }
 
