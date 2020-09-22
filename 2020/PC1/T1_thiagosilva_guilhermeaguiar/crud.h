@@ -20,6 +20,6 @@ void sellProdutct();
 void queryProduct();
 
 //Funcao Consulta todos os produtos
-void consulconsultAllProducts();
+void consultAllProducts();
 
 #endif
