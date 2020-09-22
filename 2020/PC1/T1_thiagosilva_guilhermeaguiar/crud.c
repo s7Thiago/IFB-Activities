@@ -292,11 +292,11 @@ void subtrairquantidade(int qtde,int productIndex){
 
 
 //vender Produto
-void sellProdutct(){
+void sellProduct(){
 
 	char Code[PRODUCT_CODE_SIZE];
 	int productIndex;
-	int qtde = 1;
+	int qtde ;
 	mockProducts();
 
 	printf("\tCodigo do Produto: ");
