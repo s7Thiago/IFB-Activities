@@ -47,7 +47,7 @@ int main(void)
 			// Opções de teste
 		case 7:
 			mockProducts();
-			allProducts();
+			//allProducts();
 			break;
 
 		case 8:
