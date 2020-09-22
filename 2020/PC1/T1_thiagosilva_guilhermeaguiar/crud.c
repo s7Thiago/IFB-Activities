@@ -359,11 +359,12 @@ void printCodeQt()
 	printf("\n");
 	for (int i = 0; i < PRODUCT_LIST_SIZE; i++)
 	{
-		if (produtos[i].code[0] != '\0')
-		{
+		if(produtos[i].name[0] != '\0'){
+			if (produtos[i].code[0] != '\0'){
 			printf("\t%s\t%d\n",
 				   produtos[i].code,
 				   produtos[i].qtde);
+			}	
 		}
 	}
 	printf("\n");
