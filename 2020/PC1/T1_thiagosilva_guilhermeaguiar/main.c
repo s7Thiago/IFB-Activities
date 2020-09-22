@@ -1,54 +1,54 @@
 #include "produto.h"
 #include "crud.h"
 
-int main (void) {
+int main(void)
+{
 
-	
 	extern int option;
 	extern char mainMenu[][MAIN_MENU_CHARACTERS_LIMIT];
 	extern char updateProductInfoMenu[][MAIN_MENU_CHARACTERS_LIMIT];
-	
-	do{
+
+	do
+	{
 		showMenu(mainMenu, 6);
-	
+
 		printf("\nEscolha > ");
 		scanf("%d", &option);
-	
-		switch(option){
-			case 1:
-				newProduct();
+
+		switch (option)
+		{
+		case 1:
+			newProduct();
 			break;
-		
-			case 2:
-				updateProduct();
-				
+
+		case 2:
+			updateProduct();
+
 			break;
-			
-			case 3:
+
+		case 3:
 			sellProdutct();
 			break;
-		
-			case 4:
-			//Função cosulta produto pelo codigo
+
+		case 4:
+			//Função que cosulta um produto pelo codigo
 			queryProduct();
-				
+
 			break;
-		
-			case 5:
-			//Funcao Consulta todos os produtos
+
+		case 5:
+			//Funcao que consulta todos os produtos
 			consultAllProducts();
 			break;
-		
-			case 6:
+
+		case 6:
 			break;
-		
-			default:
-				printf("\n\n	Invalid option\n\n");
-		
-	}
-	
-	}while(option != 6);
-	
+
+		default:
+			printf("\n\n	Invalid option\n\n");
+		}
+
+	} while (option != 6);
+
 	return 0;
 }
-
