@@ -12,9 +12,14 @@ void newProduct();
 // Atualiza o produto de código passado por parâmetro se existir
 void updateProduct();
 
+//Vender Produto
+void sellProdutct();
+
+
 //Consulta Produto pelo codigo
 void queryProduct();
 
-
+//Funcao Consulta todos os produtos
+void consulconsultAllProducts();
 
 #endif

@@ -25,6 +25,7 @@ int main (void) {
 			break;
 			
 			case 3:
+			sellProdutct();
 			break;
 		
 			case 4:
@@ -34,10 +35,11 @@ int main (void) {
 			break;
 		
 			case 5:
+			//Funcao Consulta todos os produtos
+			consultAllProducts();
 			break;
 		
 			case 6:
-			
 			break;
 		
 			default:

@@ -235,6 +235,13 @@ void updateProduct(){
 }
 
 
+//vender Produto
+void sellProdutct(){
+	queryProduct();
+	
+}
+
+
 //Imprimindo produtos encontrado
 void imprimirProduto(int i) {
 	printf("\n");
@@ -268,9 +275,30 @@ void queryProduct(){
 	imprimirProduto(productIndex);
 		
 	} else {
-		printf("\n\tCódigo inválido!\n");
+		printf("\n\tCódigo inválido!\n\n");
 	}
 
+};
+
+
+//Imprimir o codigo e a quantidade
+void printCodeQt() {
+	printf("\n");
+	for (int i = 0; i < PRODUCT_LIST_SIZE; i++){
+		if(produtos[i].code[0] != '\0'){
+			printf("\t%s\t%d\n", 
+				produtos[i].code,
+				produtos[i].qtde);
+		}	
+	}
+	printf("\n");
+}
+
+//Funcao Consulta todos os produtos
+void consultAllProducts(){
+
+	mockProducts();
+	printCodeQt();
 };
 
 
