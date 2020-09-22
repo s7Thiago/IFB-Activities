@@ -61,19 +61,19 @@ void mockProducts()
 	generateProductCode(code, produtos[2].country, 3);
 	strcpy(produtos[2].code, code);
 
-	/*//
+	//
 	strcpy(produtos[3].name, "Smartphone");
 	strcpy(produtos[3].country, "China");
 	produtos[3].qtde = 150;
 	generateProductCode(code, produtos[3].country, 4);
 	strcpy(produtos[3].code, code);
-	
+
 	//
 	strcpy(produtos[4].name, "SSD");
 	strcpy(produtos[4].country, "Egito");
 	produtos[4].qtde = 150;
 	generateProductCode(code, produtos[4].country, 5);
-	strcpy(produtos[4].code, code);*/
+	strcpy(produtos[4].code, code);
 }
 
 int lastProductIndex()
@@ -130,9 +130,6 @@ void newProduct()
 	int qtde;
 	char code[PRODUCT_CODE_SIZE];
 
-	// Cadastrando produtos para teste
-	mockProducts();
-
 	// Mostra detalhes de todos os produtos cadastrados
 	allProducts();
 
@@ -160,7 +157,7 @@ void newProduct()
 	// atribuindo o código ao produto em questão
 	generateProductCode(code, country, lastProdIndex);
 
-	//Removendo 3 caracteres finais desnecessários do codigo
+	//Removendo 3 caracteres finais desnecessários do código
 	for (int i = PRODUCT_CODE_SIZE; i < PRODUCT_CODE_SIZE + 3; i++)
 	{
 		code[i] = '\0';
@@ -170,9 +167,6 @@ void newProduct()
 
 	//Inserindo o produto na lista
 	produtos[lastProdIndex] = newProduct;
-
-	// Mostra detalhes de todos os produtos cadastrados
-	allProducts();
 }
 
 void updateProduct()
@@ -184,7 +178,6 @@ void updateProduct()
 	int productIndex;
 	//
 	char trailing[6];
-	char leading[2];
 
 	// Cadastrando produtos para teste
 	mockProducts();
@@ -230,14 +223,43 @@ void updateProduct()
 			// A alteração só acontece se a nova origem for diferente da antiga
 			if (strcmp(country, produtos[productIndex].country) != 0)
 			{
+
+				//Limpando o trailing
+				cleanString(trailing, 6);
+
 				// Salvando a parte que não vai mudar no novo código
-				for (int i = 2; i < 6; i++)
+				printf("\t\tTESTE: ");
+				for (int i = 2; i < 8; i++)
 				{
-					trailing[i] = produtos[productIndex].code[i];
+
+					trailing[i - 2] = produtos[productIndex].code[i];
 				}
+
+				//Removendo pare indevida do trailing
+				for (int j = 6; j < (8 + strlen(country)); j++)
+				{
+					trailing[j] = '\0';
+				}
+
+				printf("\n\nTRAILING: %s\n\n", trailing);
 			}
 
-			printf("\n\n\t\tTRAILING [ %s ]\n\n", trailing);
+			// Extraindo os 2 primeiros caracteres do país
+			char pp[3];
+			pp[0] = lowerToUpperChar(country[0]);
+			pp[1] = lowerToUpperChar(country[1]);
+			pp[2] = '\0';
+
+			strcat(pp, trailing);
+
+			// Atribuindo o novo código
+			strcpy(produtos[productIndex].code, pp);
+
+			// Atribuindo o novo país
+			cleanString(produtos[productIndex].country, strlen(produtos[productIndex].country));
+			strcpy(produtos[productIndex].country, country); //Copia o novo país para a propriedade no produto
+
+			printf("\n\nNOVO CÓDIGO: %s\n\n", produtos[productIndex].code);
 
 			break;
 
@@ -260,7 +282,7 @@ void updateProduct()
 }
 
 //vender Produto
-void sellProdutct()
+void sellProduct()
 {
 	queryProduct();
 }
@@ -272,14 +294,14 @@ void imprimirProduto(int i)
 
 	if (produtos[i].code[0] != '\0')
 	{
-		printf("\tNome do Produto: %s\n\tPais de Origem: %s\n\tQuantidade de Itens: %d\n\tCodigo: %s\n\n",
+		printf("\tNome do Produto: %s\n\tPais de Origem: %s\n\tQuantidade de Itens: %d\n\tCódigo: %s\n\n",
 			   produtos[i].name,
 			   produtos[i].country,
 			   produtos[i].qtde, produtos[i].code);
 	}
 }
 
-//Funcao para consulta Produto pelo codigo
+//Função para consulta Produto pelo código
 void queryProduct()
 {
 	char Code[PRODUCT_CODE_SIZE];
@@ -287,7 +309,7 @@ void queryProduct()
 
 	mockProducts();
 
-	printf("\tCodigo do Produto: ");
+	printf("\tCódigo do Produto: ");
 	scanf("%s", Code);
 
 	productIndex = getProductIndexFromCode(Code);
@@ -303,7 +325,7 @@ void queryProduct()
 	}
 };
 
-//Imprimir o codigo e a quantidade
+//Imprimir o código e a quantidade
 void printCodeQt()
 {
 	printf("\n");
@@ -319,7 +341,7 @@ void printCodeQt()
 	printf("\n");
 }
 
-//Funcao Consulta todos os produtos
+//Função Consulta todos os produtos
 void consultAllProducts()
 {
 

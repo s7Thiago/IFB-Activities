@@ -13,8 +13,7 @@ void newProduct();
 void updateProduct();
 
 //Vender Produto
-void sellProdutct();
-
+void sellProduct();
 
 //Consulta Produto pelo codigo
 void queryProduct();

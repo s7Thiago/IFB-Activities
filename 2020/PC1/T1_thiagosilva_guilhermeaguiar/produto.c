@@ -1,6 +1,5 @@
 #include "produto.h"
 
-// Converte letra maiúscula em minúscula
 char lowerToUpperChar(char target)
 {
 
@@ -12,7 +11,6 @@ char lowerToUpperChar(char target)
 	return result;
 }
 
-//Converte o inteiro num para String e armazena em str
 void toString(char str[], int num)
 {
 	int i, rem, len = 0, n;
@@ -54,7 +52,7 @@ void generateProductCode(char target[], char *country, int productIndex)
 	strcat(code, pp);
 	strcat(code, "IFB");
 
-	//Anexando o indice do produto recebido ao codigo
+	//Anexando o indice do produto recebido ao código
 	char aux[2];
 
 	toString(aux, productIndex); // convertendo o indece para string e armazenando em aux

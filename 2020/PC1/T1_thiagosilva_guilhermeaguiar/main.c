@@ -27,17 +27,17 @@ int main(void)
 			break;
 
 		case 3:
-			sellProdutct();
+			sellProduct();
 			break;
 
 		case 4:
-			//Função que cosulta um produto pelo codigo
+			//Função que consulta um produto pelo código
 			queryProduct();
 
 			break;
 
 		case 5:
-			//Funcao que consulta todos os produtos
+			//Função que consulta todos os produtos
 			consultAllProducts();
 			break;
 
