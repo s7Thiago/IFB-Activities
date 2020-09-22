@@ -130,9 +130,6 @@ void newProduct()
 	int qtde;
 	char code[PRODUCT_CODE_SIZE];
 
-	// Mostra detalhes de todos os produtos cadastrados
-	allProducts();
-
 	// Pegando o indice do ultimo produto cadastrado
 	int lastProdIndex = lastProductIndex() + 1;
 
@@ -178,12 +175,6 @@ void updateProduct()
 	int productIndex;
 	//
 	char trailing[6];
-
-	// Cadastrando produtos para teste
-	mockProducts();
-
-	// Mostra detalhes de todos os produtos cadastrados
-	allProducts();
 
 	// Recebendo o código
 	printf("Código > ");
@@ -281,12 +272,10 @@ void subtrairquantidade(int qtde, int productIndex)
 
 	produtos[productIndex].qtde -= qtde;
 
-	if (produtos[productIndex].qtde == 0){
+	if (produtos[productIndex].qtde == 0)
+	{
 		cleanString(produtos[productIndex].name, strlen(produtos[productIndex].name));
 		cleanString(produtos[productIndex].country, strlen(produtos[productIndex].country));
-	
-		
-
 	}
 }
 
@@ -297,7 +286,6 @@ void sellProduct()
 	char Code[PRODUCT_CODE_SIZE];
 	int productIndex;
 	int qtde;
-	mockProducts();
 
 	printf("\tCodigo do Produto: ");
 	scanf("%s", Code);
@@ -349,8 +337,6 @@ void queryProduct()
 	char Code[PRODUCT_CODE_SIZE];
 	int productIndex;
 
-	mockProducts();
-
 	printf("\tCódigo do Produto: ");
 	scanf("%s", Code);
 
@@ -386,6 +372,5 @@ void printCodeQt()
 // Mostra detalhes de  todos os produtos
 void consultAllProducts()
 {
-	mockProducts();
 	printCodeQt();
 };

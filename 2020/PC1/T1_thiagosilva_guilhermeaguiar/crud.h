@@ -21,4 +21,9 @@ void queryProduct();
 //Função Consulta todos os produtos
 void consultAllProducts();
 
+// Funções para debug
+void allProducts();
+
+void mockProducts();
+
 #endif

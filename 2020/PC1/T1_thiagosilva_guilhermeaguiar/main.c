@@ -44,6 +44,16 @@ int main(void)
 		case 6:
 			break;
 
+			// Opções de teste
+		case 7:
+			mockProducts();
+			allProducts();
+			break;
+
+		case 8:
+			allProducts();
+			break;
+
 		default:
 			printf("\n\n	Invalid option\n\n");
 		}
