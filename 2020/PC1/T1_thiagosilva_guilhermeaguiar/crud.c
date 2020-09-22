@@ -235,12 +235,26 @@ void updateProduct(){
 }
 
 
+void subtrairquantidade(int qtde,int productIndex){
+
+	produtos[productIndex].qtde -= qtde;
+
+	if (produtos[productIndex].qtde == 0){
+		printf("Excluir\n");
+	
+		
+	}
+	
+
+}
+
+
 //vender Produto
 void sellProdutct(){
 
 	char Code[PRODUCT_CODE_SIZE];
 	int productIndex;
-	
+	int qtde = 1;
 	mockProducts();
 
 	printf("\tCodigo do Produto: ");
@@ -248,13 +262,27 @@ void sellProdutct(){
 
 	productIndex = getProductIndexFromCode(Code);
 	if (productIndex != -1){
-		printf("Digite a quantidade de itens vende");
-	}else
-	{
+		
+		do{
+		printf("Digite a quantidade de itens vendidos: ");
+		scanf("%d",&qtde);
+		if(qtde > 0){
+			if(qtde > produtos[productIndex].qtde) printf("\tNão existem itens suficientes para este produto\n");
+		}
+
+		if(qtde < 0) printf("\tValor invalido,digite novamente\n");
+	
+		
+		} while (qtde < 0 || qtde > produtos[productIndex].qtde);
+		
+		
+	subtrairquantidade(qtde,productIndex);
+		
+		
+		
+	}else{
 		printf("\n\tCódigo inválido!\n\n");
 	}
-	
-	
 	
 }
 
