@@ -123,6 +123,25 @@ int getProductIndexFromCode(char *searchedCode)
 	return index;
 }
 
+// Retorna a quantidade de produtos ativos na lista de produtos
+int activeProducts()
+{
+	int activeProductsQtde = 0;
+	int lastIndex = lastProductIndex();
+
+	printf("\n\níndice do ultimo produto na lista: %d\n\n", lastIndex);
+
+	for (int i = 0; i < lastIndex; i++)
+	{
+		printf("\ni [%d] [%d]", i, produtos[i].qtde);
+		if (produtos[i].qtde > 0)
+		{
+			activeProductsQtde++;
+		}
+	}
+	return activeProductsQtde;
+}
+
 void newProduct()
 {
 	char name[PRODUCT_NAME_SIZE];
@@ -132,38 +151,46 @@ void newProduct()
 
 	// Pegando o indice do ultimo produto cadastrado
 	int lastProdIndex = lastProductIndex() + 1;
+	int activeProductsQtde = activeProducts();
 
-	// Recebendo os dados do novo produto
-	printf("	Nome > ");
-	scanf("%s", name);
+	printf("\nQUANTIDADE ATIVOS: %d\n", activeProductsQtde);
 
-	printf("	País > ");
-	scanf("%s", country);
-	getchar();
-
-	printf("	Quantidade > ");
-	scanf("%d", &qtde);
-
-	//Atribuindo dados
-	produto newProduct;
-
-	strcpy(newProduct.name, name);
-	newProduct.qtde = qtde;
-	strcpy(newProduct.country, country);
-
-	// atribuindo o código ao produto em questão
-	generateProductCode(code, country, lastProdIndex);
-
-	//Removendo 3 caracteres finais desnecessários do código
-	for (int i = PRODUCT_CODE_SIZE; i < PRODUCT_CODE_SIZE + 3; i++)
+	if (activeProductsQtde < 6)
 	{
-		code[i] = '\0';
+		// Recebendo os dados do novo produto
+		printf("	Nome > ");
+		scanf("%s", name);
+
+		printf("	País > ");
+		scanf("%s", country);
+		getchar();
+
+		printf("	Quantidade > ");
+		scanf("%d", &qtde);
+
+		//Atribuindo dados
+		produto newProduct;
+
+		strcpy(newProduct.name, name);
+		newProduct.qtde = qtde;
+		strcpy(newProduct.country, country);
+
+		// atribuindo o código ao produto em questão
+		generateProductCode(code, country, lastProdIndex);
+
+		//Removendo 3 caracteres finais desnecessários do código
+		for (int i = PRODUCT_CODE_SIZE; i < PRODUCT_CODE_SIZE + 3; i++)
+		{
+			code[i] = '\0';
+		}
+
+		strcpy(newProduct.code, code);
+
+		//Inserindo o produto na lista
+		produtos[lastProdIndex] = newProduct;
 	}
-
-	strcpy(newProduct.code, code);
-
-	//Inserindo o produto na lista
-	produtos[lastProdIndex] = newProduct;
+	else
+		printf("\n\nNão é possíel adicionar mais produtos no estoque\n\n");
 }
 
 void updateProduct()
@@ -359,12 +386,14 @@ void printCodeQt()
 	printf("\n");
 	for (int i = 0; i < PRODUCT_LIST_SIZE; i++)
 	{
-		if(produtos[i].name[0] != '\0'){
-			if (produtos[i].code[0] != '\0'){
-			printf("\t%s\t%d\n",
-				   produtos[i].code,
-				   produtos[i].qtde);
-			}	
+		if (produtos[i].name[0] != '\0')
+		{
+			if (produtos[i].code[0] != '\0')
+			{
+				printf("\t%s\t%d\n",
+					   produtos[i].code,
+					   produtos[i].qtde);
+			}
 		}
 	}
 	printf("\n");
