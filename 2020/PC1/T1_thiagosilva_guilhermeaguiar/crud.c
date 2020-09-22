@@ -281,9 +281,12 @@ void subtrairquantidade(int qtde, int productIndex)
 
 	produtos[productIndex].qtde -= qtde;
 
-	if (produtos[productIndex].qtde == 0)
-	{
-		printf("Excluir\n");
+	if (produtos[productIndex].qtde == 0){
+		cleanString(produtos[productIndex].name, strlen(produtos[productIndex].name));
+		cleanString(produtos[productIndex].country, strlen(produtos[productIndex].country));
+	
+		
+
 	}
 }
 
@@ -383,7 +386,6 @@ void printCodeQt()
 // Mostra detalhes de  todos os produtos
 void consultAllProducts()
 {
-
 	mockProducts();
 	printCodeQt();
 };
