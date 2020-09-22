@@ -3,6 +3,7 @@
 
 int main(void)
 {
+	init();
 
 	extern int option;
 	extern char mainMenu[][MAIN_MENU_CHARACTERS_LIMIT];

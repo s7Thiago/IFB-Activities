@@ -5,7 +5,7 @@
 
 #define PRODUCT_CODE_SIZE 8
 #define PRODUCT_NAME_SIZE 50
-#define PRODUCT_LIST_SIZE 10
+#define PRODUCT_LIST_SIZE 999
 
 #include <stdio.h>
 #include <string.h>
@@ -31,5 +31,8 @@ char lowerToUpperChar(char target);
 
 //Converte o inteiro num para String e armazena em str
 void toString(char str[], int num);
+
+// Configura a inicialização do programa
+void init();
 
 #endif

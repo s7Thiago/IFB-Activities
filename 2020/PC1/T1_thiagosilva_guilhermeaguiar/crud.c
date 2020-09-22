@@ -155,7 +155,7 @@ void newProduct()
 
 	printf("\nQUANTIDADE ATIVOS: %d\n", activeProductsQtde);
 
-	if (activeProductsQtde < 6)
+	if (activeProductsQtde < 20)
 	{
 		// Recebendo os dados do novo produto
 		printf("	Nome > ");

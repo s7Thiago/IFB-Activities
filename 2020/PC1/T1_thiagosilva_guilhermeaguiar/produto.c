@@ -31,6 +31,14 @@ void toString(char str[], int num)
 	str[len] = '\0';
 }
 
+void init()
+{
+	for (int i = 0; i < PRODUCT_LIST_SIZE; i++)
+	{
+		produtos[i].code[0] = '\0';
+	}
+}
+
 void generateProductCode(char target[], char *country, int productIndex)
 {
 
