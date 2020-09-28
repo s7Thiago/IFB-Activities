@@ -3,6 +3,8 @@ use fiscal;
 
 show tables;
 
+show databases;
+
 -- 1)	Crie as seguintes tabelas para resolver as questões abaixo:
 CREATE TABLE IF NOT EXISTS clientes ( 
 	codigo INT(5) NOT NULL AUTO_INCREMENT,
@@ -69,7 +71,10 @@ drop table itens_nota;
 (3, '2020-05-21'),
 (1, '2020-06-05');
 
-INSERT INTO itens_nota (num_nota, cod_prod, qtde) values
+INSERT INTO notas (cod_cli, data_pedido) VALUES
+(123, '2020-08-29');
+
+INSERT INTO itens_nota (num_nota, cod_prod, qtde) VALUES
 (1, 1, 2),
 (1, 2, 1),
 (1, 3, 3),
@@ -85,17 +90,25 @@ INSERT INTO itens_nota (num_nota, cod_prod, qtde) values
 (5, 1, 1),
 (5, 2, 2);
 
+INSERT INTO itens_nota (num_nota, cod_prod, qtde) VALUES
+(6, 3, 101),
+(6, 2, 99);
+
 -- 3)	Crie uma visão com o nome Gastos_Clientes que exiba o código, nome e total 
 -- gasto por cada cliente nos últimos 30 dias (CURDATE( ) – data <= 30)
 CREATE VIEW Gastos_Clientes AS
-SELECT N.cod_cli, C.nome
-FROM notas N INNER JOIN clientes C
-ON (C.codigo = N.cod_cli) 
-WHERE CURDATE() - N.data_pedido <= 30;
+SELECT N.cod_cli, C.nome, sum(P.valor * I.qtde) AS total_gasto
+FROM notas N INNER JOIN clientes C ON(C.codigo = N.cod_cli)
+INNER JOIN itens_nota I ON (I.num_nota = N.num_nota)
+INNER JOIN produtos P ON (P.codigo = I.cod_prod)
+WHERE DATEDIFF(CURDATE(), N.data_pedido) <= 30
+GROUP BY C.codigo;
 
 drop view Gastos_Clientes;
 
 select * from Gastos_Clientes;
+
+SELECT CURDATE();
 
 
 -- 4)	Crie uma visão com código, nome e cidade dos clientes de Samambaia e São Paulo.
@@ -115,6 +128,80 @@ SELECT * from Clientes_de_Sam_SP;
 	NSERT INTO Clientes_de_Sam_SP (codigo, nome, cidade) VALUES
 	(321, 'Ana', 'Gama');
 
+-- 6)	Crie uma visão com o código, descrição, quantidade vendida (soma das qtde) e total 
+-- arrecadado com as vendas de cada produto nos últimos 30 dias (CURDATE( ) – data <=30).
+CREATE VIEW Lucro_por_produto AS
+SELECT I.cod_prod, P.descricao, sum(I.qtde) AS vendidos, sum(I.qtde * P.valor) AS valor_arrecadado
+FROM itens_nota I INNER JOIN notas N ON (N.num_nota = I.num_nota)
+INNER JOIN produtos P ON (P.codigo = I.cod_prod)
+WHERE DATEDIFF(CURDATE(), N.data_pedido) <= 30
+GROUP BY P.codigo;
+
+DROP view Lucro_por_produto;
+
+SELECT * FROM Lucro_por_produto;
+
+-- 7)	Usando a visão anterior mostre o código e descrição dos produtos que já foram 
+-- vendidos em mais do que 100 unidades.
+SELECT cod_prod as codigo, descricao 
+FROM Lucro_por_produto
+WHERE vendidos > 100;
+
+-- 8)	Crie uma visão com o código e o nome dos clientes e a relação dos produtos (código, 
+-- descrição, quantidade e valor pago) comprados por eles nos últimos 30 dias.
+CREATE VIEW  Gastos_por_cliente AS
+SELECT C.codigo, C.nome, I.cod_prod, P.descricao, I.qtde, (I.qtde * P.valor) as Total
+FROM clientes C 
+INNER JOIN notas N ON(C.codigo = N.cod_cli)
+INNER JOIN itens_nota I ON(I.num_nota = N.num_nota)
+INNER JOIN produtos P ON(P.codigo = I.cod_prod)
+WHERE (curdate() - N.data_pedido) <= 30;
+
+DROP VIEW Gastos_por_cliente;
+
+SELECT * FROM Gastos_por_cliente;
+
+-- 9)	Consulte a visão anterior e exiba o nome dos clientes que compraram o produto de 
+-- descrição ‘Mesa Redonda de Mogno’ nos últimos 30 dias.
+SELECT G.nome
+From Gastos_por_cliente G
+INNER JOIN notas N ON(N.cod_cli = G.codigo)
+INNER JOIN produtos P ON(P.codigo = G.cod_prod)
+WHERE G.descricao = 'Mesa Redonda de Mogno'
+AND (curdate() - N.data_pedido) <= 30;
+
+-- 10)	Crie uma visão com os dados dos produtos (código, descrição e quantidade em estoque) 
+-- que não foram vendidos desde 01/01/2019.
+CREATE VIEW Nao_vendidos AS
+SELECT I.cod_prod, P.descricao, P.qtde
+FROM produtos P
+INNER JOIN itens_nota I ON(I.cod_prod = P.codigo)
+INNER JOIN notas N ON(N.num_nota = I.num_nota)
+WHERE P.codigo NOT IN (SELECT cod_prod FROM itens_nota WHERE N.data_pedido > '2020-01-01');
+
+DROP VIEW Nao_vendidos;
+
+SELECT * FROM Nao_vendidos;
+
+-- 11)	Usando a visão do exercicio anterior mostre a descrição dos produtos que ainda não 
+-- foram vendidos em 2018 e que tem mais do que 100 unidades em estoque.
+SELECT NV.descricao
+FROM Nao_vendidos NV
+INNER JOIN  produtos P ON(P.codigo = NV.cod_prod)
+INNER JOIN itens_nota I ON(NV.cod_prod = I.cod_prod)
+INNER JOIN notas N ON(N.num_nota = I.num_nota)
+WHERE N.data_pedido NOT IN (SELECT data_pedido FROM notas WHERE data_pedido > '2020-12-31');
+
+-- 12)	Atualize os preços dos produtos de acordo com a seguinte regra:
+-- -	produtos com custo < 100 reais terão 10% de aumento.
+-- -	demais produtos terão 20% de aumento.
+UPDATE produtos
+SET valor = valor + (valor * 0.1)
+WHERE valor < 100;
+
+UPDATE produtos
+SET valor = valor + (valor * 0.2)
+WHERE valor >= 100;
 
 
 
@@ -133,24 +220,7 @@ SELECT * from Clientes_de_Sam_SP;
 
 
 
--- 
-CREATE TABLE IF NOT EXISTS teste (
-	id integer(3) AUTO_INCREMENT,
-	nome varchar (30),
-	idade int(3),
-	primary key(id),
-	CONSTRAINT CH_IDADE CHECK(idade >= 18)
-);
 
-drop table teste;
-
-alter table teste add primary key(id);
-
-INSERT INTO teste(nome, idade) values
-('Thiago Sousa', 23),
-('Bernardo Vasconcelos', 18),
-('Matheus Carlos', 21),
-('Ítalo Ribeiro', 20);
 
 
 
