@@ -227,6 +227,19 @@ DROP PROCEDURE precoProduto;
 
 CALL precoProduto;
 
+-- 16)	Crie uma função que receba o número da nota e calcule o total gasto naquela nota (soma dos 
+-- preços unitários * qtde vendida de cada item da nota).
+
+
+-- 17)	Crie um gatilho que seja executado toda vez que um novo registro for inserido na tabela de 
+-- Itens_Nota. O gatilho deve reduzir do estoque a quantidade vendida do produto em questão. Teste 
+-- este gatilho para verificar se ele funciona adequadamente.
+
+
+-- 18)	 Crie um outro gatilho que seja executado toda vez que houver uma alteração do valor da qtde 
+-- da tabela de Itens_Nota . Neste caso a quantidade em estoque deve ser atualizada pela diferença 
+-- entre o valor antigo e o novo da qtde na tabela de vendas. Teste este gatilho para verificar se 
+-- ele funciona adequadamente.
 
 
 
