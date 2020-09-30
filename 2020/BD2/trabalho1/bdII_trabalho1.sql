@@ -203,9 +203,29 @@ UPDATE produtos
 SET valor = valor + (valor * 0.2)
 WHERE valor >= 100;
 
+-- 13)	Remova os dados de um dos produtos bem como as respectivas vendas deste a partir de 
+-- sua descrição.
+DELETE from P.* from produtos P
+INNER JOIN itens_nota I ON(I.cod_prod = P.codigo)
+INNER JOIN notas N ON(N.num_nota = I.num_nota)
+WHERE p.descricao = 'descrição do produto que será apagado';
 
+-- 14)	Altere a estrutura da tabela de itens_nota incluindo o campo preço_unit número (5,2) >=0.
+-- Este campo irá informar o preço unitário do produto no dia da compra.
+ALTER TABLE itens_nota
+ADD COLUMN preco_unit decimal(5, 2);
 
+-- 15)	Crie um procedimento que atribua ao campo preço_unit o preço do produto para cada registo 
+-- cadastrado na tabela de itens_nota.
+CREATE PROCEDURE precoProduto()
+	UPDATE itens_nota 
+		INNER JOIN produtos as P ON(P.codigo = itens_nota.cod_prod)
+		SET preco_unit = P.valor
+	WHERE itens.cod_prod = produtos.codigo;
 
+DROP PROCEDURE precoProduto;
+
+CALL precoProduto;
 
 
 
