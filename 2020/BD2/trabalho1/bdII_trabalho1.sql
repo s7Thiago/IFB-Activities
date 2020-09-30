@@ -221,7 +221,7 @@ CREATE PROCEDURE precoProduto()
 	UPDATE itens_nota 
 		INNER JOIN produtos as P ON(P.codigo = itens_nota.cod_prod)
 		SET preco_unit = P.valor
-	WHERE itens.cod_prod = produtos.codigo;
+	WHERE itens_nota.cod_prod = P.codigo;
 
 DROP PROCEDURE precoProduto;
 
@@ -229,6 +229,18 @@ CALL precoProduto;
 
 -- 16)	Crie uma função que receba o número da nota e calcule o total gasto naquela nota (soma dos 
 -- preços unitários * qtde vendida de cada item da nota).
+CREATE FUNCTION totalNota(num_nota INT(6))
+	RETURNS void
+	
+		 SELECT sum(p.valor * i.qtde) 
+		FROM itens_nota i 
+		INNER JOIN notas n ON (i.num_nota = n.num_nota)
+		inner JOIN produtos p ON (p.codigo = i.cod_prod)
+		WHERE i.num_nota = 1;
+	
+	DROP FUNCTION totalNota;
+
+SELECT totalNota(1);
 
 
 -- 17)	Crie um gatilho que seja executado toda vez que um novo registro for inserido na tabela de 
