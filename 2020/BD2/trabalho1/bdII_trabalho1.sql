@@ -251,19 +251,20 @@ CALL precoProduto;
 
 -- 16)	Crie uma função que receba o número da nota e calcule o total gasto naquela nota (soma dos 
 -- preços unitários * qtde vendida de cada item da nota).
-CREATE FUNCTION totalNota(num_nota INT(6))
-	RETURNS void
+CREATE FUNCTION totalNota(id_nota INT)
+	RETURNS INT 
 	
-		 SELECT sum(p.valor * i.qtde) 
-		FROM itens_nota i 
-		INNER JOIN notas n ON (i.num_nota = n.num_nota)
-		inner JOIN produtos p ON (p.codigo = i.cod_prod)
-		WHERE i.num_nota = 1;
+		RETURN (
+			SELECT sum(p.valor * i.qtde)
+			FROM itens_nota i
+			INNER JOIN notas n ON (i.num_nota = n.num_nota)
+			inner JOIN produtos p ON (p.codigo = i.cod_prod)
+			WHERE i.num_nota = @id_nota
+		);
 	
 	DROP FUNCTION totalNota;
 
 SELECT totalNota(1);
-
 
 -- 17)	Crie um gatilho que seja executado toda vez que um novo registro for inserido na tabela de 
 -- Itens_Nota. O gatilho deve reduzir do estoque a quantidade vendida do produto em questão. Teste 
@@ -274,14 +275,21 @@ CREATE TRIGGER atualizar_estoque
     BEGIN 
 	    UPDATE produtos INNER JOIN itens_nota N ON(N.cod_prod = produtos.codigo)
 	    SET produtos.qtde = produtos.qtde - N.qtde
-	    WHERE produtos.codigo = N.cod_prod;
-    END
+	    WHERE produtos.codigo = N.cod_prod
+	END
 
 -- 18)	 Crie um outro gatilho que seja executado toda vez que houver uma alteração do valor da qtde 
 -- da tabela de Itens_Nota . Neste caso a quantidade em estoque deve ser atualizada pela diferença 
 -- entre o valor antigo e o novo da qtde na tabela de vendas. Teste este gatilho para verificar se 
 -- ele funciona adequadamente.
-
+CREATE TRIGGER atualizar_estoque2
+    AFTER UPDATE
+    ON itens_nota FOR EACH ROW
+    BEGIN 
+	    UPDATE produtos INNER JOIN itens_nota N ON(N.cod_prod = produtos.codigo)
+	    SET produtos.qtde = produtos.qtde - N.qtde
+	    WHERE produtos.codigo = N.cod_prod;
+    END
 
 
 
