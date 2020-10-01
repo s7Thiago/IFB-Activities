@@ -63,6 +63,10 @@ drop table itens_nota;
 ('Teclado sem fio Logitech', 25, 190.99),
 ('Lavadora Alta Pressão Smart', 667, 309.90);
 
+INSERT INTO produtos (descricao, qtde, valor) VALUES
+('Carregador Turbo', 200, 120),
+('S pen', 153, 380.5);
+
 -- b)	Insira 2 notas com 3 itens em cada nota, utilizando os clientes e produtos cadastrados. 
  INSERT INTO notas (cod_cli, data_pedido) VALUES
 (3, '2020-05-14'),
@@ -177,7 +181,20 @@ SELECT I.cod_prod, P.descricao, P.qtde
 FROM produtos P
 INNER JOIN itens_nota I ON(I.cod_prod = P.codigo)
 INNER JOIN notas N ON(N.num_nota = I.num_nota)
-WHERE P.codigo NOT IN (SELECT cod_prod FROM itens_nota WHERE N.data_pedido > '2020-01-01');
+WHERE P.codigo 
+	NOT IN (
+		SELECT cod_prod 
+		FROM itens_nota 
+		WHERE N.data_pedido > '2020-01-01'
+		) 
+UNION (
+		SELECT produtos.codigo, produtos.descricao, produtos.qtde
+		FROM produtos 
+		WHERE NOT EXISTS (
+			SELECT * FROM itens_nota
+			WHERE cod_prod = codigo
+		)
+	);
 
 DROP VIEW Nao_vendidos;
 
@@ -190,7 +207,12 @@ FROM Nao_vendidos NV
 INNER JOIN  produtos P ON(P.codigo = NV.cod_prod)
 INNER JOIN itens_nota I ON(NV.cod_prod = I.cod_prod)
 INNER JOIN notas N ON(N.num_nota = I.num_nota)
-WHERE N.data_pedido NOT IN (SELECT data_pedido FROM notas WHERE data_pedido > '2020-12-31');
+WHERE N.data_pedido 
+NOT IN (
+	SELECT data_pedido 
+	FROM notas 
+	WHERE data_pedido > '2020-12-31'
+);
 
 -- 12)	Atualize os preços dos produtos de acordo com a seguinte regra:
 -- -	produtos com custo < 100 reais terão 10% de aumento.
@@ -246,7 +268,14 @@ SELECT totalNota(1);
 -- 17)	Crie um gatilho que seja executado toda vez que um novo registro for inserido na tabela de 
 -- Itens_Nota. O gatilho deve reduzir do estoque a quantidade vendida do produto em questão. Teste 
 -- este gatilho para verificar se ele funciona adequadamente.
-
+CREATE TRIGGER atualizar_estoque
+    AFTER INSERT
+    ON itens_nota FOR EACH ROW
+    BEGIN 
+	    UPDATE produtos INNER JOIN itens_nota N ON(N.cod_prod = produtos.codigo)
+	    SET produtos.qtde = produtos.qtde - N.qtde
+	    WHERE produtos.codigo = N.cod_prod;
+    END
 
 -- 18)	 Crie um outro gatilho que seja executado toda vez que houver uma alteração do valor da qtde 
 -- da tabela de Itens_Nota . Neste caso a quantidade em estoque deve ser atualizada pela diferença 
