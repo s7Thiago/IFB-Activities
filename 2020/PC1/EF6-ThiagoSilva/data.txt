@@ -1,0 +1,11 @@
+Joao	15	9.8
+Maria	18	7.8
+Cesar	38	3.95
+Maisa	18	7.1
+Carlos	14	6.5
+reginaldo	16	4.5
+Ronaldo	18	8.8
+Ana	23
+Nayara	18	4.1
+Raquel	17	10.0
+Renata	21	5.7

@@ -227,10 +227,10 @@ WHERE valor >= 100;
 
 -- 13)	Remova os dados de um dos produtos bem como as respectivas vendas deste a partir de 
 -- sua descrição.
-DELETE from P.* from produtos P
+DELETE P.*  from produtos P
 INNER JOIN itens_nota I ON(I.cod_prod = P.codigo)
 INNER JOIN notas N ON(N.num_nota = I.num_nota)
-WHERE p.descricao = 'descrição do produto que será apagado';
+WHERE P.descricao like 'Mesa redonda de Mogno';
 
 -- 14)	Altere a estrutura da tabela de itens_nota incluindo o campo preço_unit número (5,2) >=0.
 -- Este campo irá informar o preço unitário do produto no dia da compra.
@@ -252,19 +252,19 @@ CALL precoProduto;
 -- 16)	Crie uma função que receba o número da nota e calcule o total gasto naquela nota (soma dos 
 -- preços unitários * qtde vendida de cada item da nota).
 CREATE FUNCTION totalNota(id_nota INT)
-	RETURNS INT 
-	
+	RETURNS INT
+	DETERMINISTIC
 		RETURN (
 			SELECT sum(p.valor * i.qtde)
 			FROM itens_nota i
 			INNER JOIN notas n ON (i.num_nota = n.num_nota)
 			inner JOIN produtos p ON (p.codigo = i.cod_prod)
-			WHERE i.num_nota = @id_nota
+			WHERE i.num_nota = id_nota
 		);
 	
-	DROP FUNCTION totalNota;
+DROP FUNCTION totalNota;
 
-SELECT totalNota(1);
+SELECT totalNota(4);
 
 -- 17)	Crie um gatilho que seja executado toda vez que um novo registro for inserido na tabela de 
 -- Itens_Nota. O gatilho deve reduzir do estoque a quantidade vendida do produto em questão. Teste 
