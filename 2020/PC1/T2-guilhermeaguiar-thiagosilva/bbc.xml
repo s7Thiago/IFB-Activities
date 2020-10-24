@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+    <channel>
+        <title><![CDATA[BBC Brasil - Notícias, vídeos, análise e contexto em português]]></title>
+        <description><![CDATA[BBC Brasil - Notícias, vídeos, análise e contexto em português]]></description>
+        <link>http://www.bbcbrasil.com</link>
+        <image>
+            <url>http://www.bbc.co.uk/portuguese/images/gel/rss_logo.gif</url>
+            <title>BBC Brasil - Notícias, vídeos, análise e contexto em português</title>
+            <link>http://www.bbcbrasil.com</link>
+        </image>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Fri, 23 Oct 2020 13:38:25 GMT</lastBuildDate>
+        <copyright><![CDATA[Copyright British Broadcasting Corporation ]]></copyright>
+        <language><![CDATA[pt-BR]]></language>
+        <managingEditor><![CDATA[portuguese@bbc.co.uk]]></managingEditor>
+        <ttl>15</ttl>
+        <item>
+            <title><![CDATA[Trump x Biden: presidente se vende como outsider e democrata oferece empatia em debate com tom convencional]]></title>
+            <description><![CDATA[Último embate direto entre candidatos republicano e democrata antes da eleição presidencial dos EUA, em 3 de novembro, teve acusações mas também discussão de política pública]]></description>
+            <link>http://www.bbc.com/portuguese/internacional-54657192</link>
+            <guid isPermaLink="true">http://www.bbc.com/portuguese/internacional-54657192</guid>
+            <pubDate>Fri, 23 Oct 2020 07:52:14 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Trump x Biden: quem ganhou o último debate presidencial antes das eleições nos EUA?]]></title>
+            <description><![CDATA[Na opinião de Paul Danahar, editor-chefe da BBC nos Estados Unidos, o debate "foi uma vitória apertada por pontos para o presidente Trump", ele acrescenta que o mandatário "precisava arrasar seu adversário para conter a campanha de Biden, e não conseguiu isso".]]></description>
+            <link>http://www.bbc.com/portuguese/internacional-54657716</link>
+            <guid isPermaLink="true">http://www.bbc.com/portuguese/internacional-54657716</guid>
+            <pubDate>Fri, 23 Oct 2020 08:10:12 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Pelé, 80 anos: a 'carreira artística' no cinema, na música e nos quadrinhos]]></title>
+            <description><![CDATA[Além de aspirante a ator, Pelé também gosta de compor e cantar. Ele é autor de mais de 100 músicas e vendeu mais de 100 mil cópias de um álbum.]]></description>
+            <link>http://www.bbc.com/portuguese/geral-54657720</link>
+            <guid isPermaLink="true">http://www.bbc.com/portuguese/geral-54657720</guid>
+            <pubDate>Fri, 23 Oct 2020 09:36:14 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Pelé, 80 anos: como o rei do futebol 'expulsou' um juiz e outras 9 histórias pouco conhecidas]]></title>
+            <description><![CDATA[Um dos atletas mais famosos de todos os tempos, o ex-futebolista brasileiro Pelé está comemorando seu 80º aniversário. Sua fama vai muito além do mundo dos esportes, mas aqui estão algumas histórias que você talvez não conheça sobre o homem conhecido como O Rei.]]></description>
+            <link>http://www.bbc.com/portuguese/geral-54646183</link>
+            <guid isPermaLink="true">http://www.bbc.com/portuguese/geral-54646183</guid>
+            <pubDate>Thu, 22 Oct 2020 18:57:14 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Os segredos de sucesso do grupo 'Formiga', gigante chinês que quer mudar o mundo financeiro]]></title>
+            <description><![CDATA[O Ant Group, que revolucionou o mercado financeiro chinês, promete abrir o capital nas próximas semanas, sugerindo uma expansão para outros países.]]></description>
+            <link>http://www.bbc.com/portuguese/geral-54654567</link>
+            <guid isPermaLink="true">http://www.bbc.com/portuguese/geral-54654567</guid>
+            <pubDate>Fri, 23 Oct 2020 11:13:22 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Por que gostamos tanto de comida crocante? (e como o som se tornou o 'gosto esquecido')]]></title>
+            <description><![CDATA[Dizemos que comemos com os olhos, mas você sabia que também se pode comer com os ouvidos? Curiosamente, os sons - e especialmente o crocante - têm muito a ver com a experiência do jantar.]]></description>
+            <link>http://www.bbc.com/portuguese/geral-54592889</link>
+            <guid isPermaLink="true">http://www.bbc.com/portuguese/geral-54592889</guid>
+            <pubDate>Fri, 23 Oct 2020 12:36:21 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
