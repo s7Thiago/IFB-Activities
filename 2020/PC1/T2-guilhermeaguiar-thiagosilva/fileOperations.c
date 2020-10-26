@@ -1,6 +1,5 @@
 #include "fileOperations.h"
 
-// Limpa uma string inserindo null (\0) em todas as posições
 void cleanString(char* target){
 	for(int i =0; i < strlen(target); i++){
 		target[i] = '\0';

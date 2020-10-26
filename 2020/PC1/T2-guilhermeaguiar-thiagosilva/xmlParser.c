@@ -40,6 +40,75 @@ void pupulateData(){
 }
 
 void getTag(char* searchPlace, char* tagName){
+	char openingTag[30];
+	char closureTag[30];
+
+	//Open tag
+	char open[2] = "<";
+	char endTag[2] = ">";
+
+	//Tag closure
+	char openClosure[3] = "</";
+
+	//Building opening tag
+	cleanString(openingTag);
+	strcat(openingTag, open);
+	strcat(openingTag, tagName);
+	strcat(openingTag, endTag);
+
+	//Building opening tag
+	cleanString(closureTag);
+	strcat(closureTag, openClosure);
+	strcat(closureTag, tagName);
+	strcat(closureTag, endTag);
+
+	int openTagSize = strlen(openingTag);
+	int closureTagSize = strlen(closureTag);
+
+	// Aux
+	char auxOpeningTag[30];
+	char auxClosureTag[30];
+	int auxOpenCount = 0;
+	int auxClosureCount = 0;
+
+	printf("RESULTADO: %s\t%s\t(%d , %d)\n\n", openingTag, closureTag, openTagSize, closureTagSize);
+
+	for(int i = 0; i < strlen(searchPlace); i++){
+		
+	}
+
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
