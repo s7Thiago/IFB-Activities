@@ -19,7 +19,6 @@ void getContent(FILE* root, char* target){
 
 	if(root != NULL){
 		while(fgets(line, sizeof(line), root) != NULL){
-			//printf("\nLinha = %s", line);
 			strcat(target, line);
 		}
 		puts("");

@@ -1,7 +1,7 @@
 #include "xmlParser.h"
 
 //
-char *data;
+char data[8000];
 char *title = "title";
 char *description = "description";
 char *link = "link";
@@ -33,7 +33,13 @@ fprintf(html,"\n");
 }
 
 // ######### Novas
-void getTag(char* searchPlace, char* tagName, char** storedContents){
+void pupulateData(){
+	FILE* fp;
+	// Armazena o conteúdo do XML na variável `data`
+	getContent(fp, data);
+}
 
+void getTag(char* searchPlace, char* tagName){
+	
 }
 
