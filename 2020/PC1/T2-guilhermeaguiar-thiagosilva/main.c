@@ -4,6 +4,8 @@
 extern char *title;
 extern char *description;
 extern char *link;
+extern char *item;
+extern char *pubDate;
 
 int main(void){
 
