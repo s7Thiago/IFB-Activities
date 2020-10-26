@@ -1,6 +1,7 @@
 #include "xmlParser.h"
 
 //
+char *data;
 char *title = "title";
 char *description = "description";
 char *link = "link";

@@ -1,16 +1,17 @@
 #include "xmlParser.h"
 #include "fileOperations.h"
 
+extern char *data;
 extern char *title;
 extern char *description;
 extern char *link;
 
 int main(void){
 	FILE* fp;
-	char target[1000];
 	
-	getContent(fp, target);
-	printf("\nRESULTADO = \n%s\n\n", target);
+	// Armazena o conteúdo do XML na variável `data`
+	getContent(fp, data);
+	
 
 return 0;
 }
