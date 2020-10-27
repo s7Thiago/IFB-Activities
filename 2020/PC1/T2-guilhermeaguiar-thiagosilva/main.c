@@ -6,7 +6,7 @@ int main(void){
 	
 	pupulateData();
 
-	getTag(data, "desciption");
+	getTag(data, "name");
 	
 
 return 0;
