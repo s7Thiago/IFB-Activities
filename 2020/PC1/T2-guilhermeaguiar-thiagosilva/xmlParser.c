@@ -92,15 +92,13 @@ void getTag(char* searchPlace, char* tagName){
 			
 // 			Verificando correspondência com a tag de abertura
 			if(strcmp(auxOpeningTag, openingTag) == 0){
-				strcat(auxOpeningTag, "     <=======================");
+//                 Tags de abertura
+//                 printf("\n%s\n", auxOpeningTag);
+                
 //                 Copia o conteúdo seguinte para `tagContents` até encontrar 
 //                 a tag de fechamento
-                printf("\n\n NOVO RESULTADO\n\n");
-                // Tags de abertura
-                printf("\n%s\n", auxOpeningTag);
-                
                 for(int k = j; k < strlen(searchPlace); k++) {
-                    printf("%c", searchPlace[k]);
+//                      printf("%c", searchPlace[k]);
 //                     Buscando tag de fechamento correspondente
                         if(searchPlace[k + 1] == '<' && searchPlace[k + 2] == '/'){
                             
@@ -109,7 +107,7 @@ void getTag(char* searchPlace, char* tagName){
                                auxChar[1] = '\0';
                                strcat(auxClosureTag, auxChar);
                             }
-                            printf("\t\tCOMPARANDO [%s & %s] %d \n", auxClosureTag, closureTag,strcmp(auxClosureTag, closureTag) == 0);
+                            printf("\t\t%s === %s\n\n", closureTag, auxClosureTag);
                             
                             if(strcmp(auxClosureTag, closureTag) == 0){
                                 printf("\tFECHAMENTO ENCONTRADO!\t");
