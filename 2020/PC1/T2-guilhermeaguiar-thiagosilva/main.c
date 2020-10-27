@@ -6,7 +6,7 @@ int main(void){
 	
 	populateData();
 
-	getTag(data, "description");
+	getTag(data, "calories");
 	
 
 return 0;
