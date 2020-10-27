@@ -4,7 +4,7 @@ extern char data[8000];
 
 int main(void){
 	
-	pupulateData();
+	populateData();
 
 	getTag(data, "description");
 	

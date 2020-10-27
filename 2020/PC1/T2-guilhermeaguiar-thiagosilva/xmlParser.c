@@ -8,8 +8,9 @@ char *description = "description";
 char *link = "link";
 
 // ######### Novas
-void pupulateData(){
+void populateData(){
 	FILE* fp;
+	FILE* html;
 	// Armazena o conteúdo do XML na variável `data`
 	getContent(fp, data);
 }

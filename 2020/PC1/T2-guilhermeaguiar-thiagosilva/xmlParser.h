@@ -13,7 +13,7 @@ void pegarTag(FILE *fp, FILE *html);
 
 // ########### Novas
 // transfere os dados do XML para uma variável
-void pupulateData();
+void populateData();
 
 // Busca recorrências de uma tag nomeada como `tagName` dentro da string 
 // `searchPlace` e armazena o conteúdo de cada recorrência em `storedContents`
