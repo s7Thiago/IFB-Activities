@@ -6,6 +6,14 @@ void cleanString(char* target){
 	}
 }
 
+void cleanStringMatrix(char matrix[][600], int lines){
+    for(int i = 0; i < lines; i++){
+        for(int j = 0; j < strlen(matrix[i]); j++){
+            matrix[i][j] = '\0';
+        }
+    }
+}
+
 void getContent(FILE* root, char* target){
 	char line[200];
 
