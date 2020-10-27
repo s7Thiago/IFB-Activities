@@ -26,13 +26,13 @@ void getTag(char *searchPlace, char *tagName) {
 	// Tag closure
 	char openClosure[3] = "</";
 
-	// Building opening tag
+	// Building opening tag base
 	cleanString(openingTag);
 	strcat(openingTag, open);
 	strcat(openingTag, tagName);
 	strcat(openingTag, endTag);
 
-	// Building opening tag
+	// Building opening tag base
 	cleanString(closureTag);
 	strcat(closureTag, openClosure);
 	strcat(closureTag, tagName);
@@ -41,14 +41,12 @@ void getTag(char *searchPlace, char *tagName) {
 	int openTagSize = strlen(openingTag);
 	int closureTagSize = strlen(closureTag);
 
-	// Aux
+	// Auxiliares
 	char auxOpeningTag[30];
 	char auxClosureTag[30];
 	char auxContentTag[30];
 	char auxCharClosureTag[2];
 	char auxChar[2];
-	int auxOpenCount = 0;
-	int auxClosureCount = 0;
 	int j = 0;
 
 	for (int i = 0; i < strlen(searchPlace); i++)
@@ -69,7 +67,7 @@ void getTag(char *searchPlace, char *tagName) {
 
 				// Copia o conteúdo seguinte para `tagContents` até encontrar
 				// a tag de fechamento
-                printf("\n\t\t\t ¬¬¬¬¬¬¬¬¬¬¬¬  REGISTRO  ¬¬¬¬¬¬¬¬¬¬¬¬ \n");
+                printf("\n\n\t ¬¬¬¬¬¬¬¬¬¬¬¬  RECORRÊNCIA DE %s  ¬¬¬¬¬¬¬¬¬¬¬¬ \n", openingTag);
 				for (int k = j; k < strlen(searchPlace); k++){
                     
                     // Transferir conteúdo

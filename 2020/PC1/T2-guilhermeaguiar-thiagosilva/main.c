@@ -2,12 +2,12 @@
 
 extern char data[8000];
 
-int main(void){
-	
+int main(void)
+{
+
 	populateData();
 
-	getTag(data, "calories");
-	
+	getTag(data, "description");
 
-return 0;
+	return 0;
 }

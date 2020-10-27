@@ -14,7 +14,7 @@ void getContent(FILE* root, char* target){
 	cleanString(target);
 	
 
-	root = fopen("food.xml", "r");
+	root = fopen("bbc.xml", "r");
 
 	if(root != NULL){
 		while(fgets(line, sizeof(line), root) != NULL){
