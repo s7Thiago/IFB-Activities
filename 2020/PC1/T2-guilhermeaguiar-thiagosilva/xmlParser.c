@@ -2,7 +2,6 @@
 
 //
 char data[8000];
-char tagContents[50][600];
 char *title = "title";
 char *description = "description";
 char *link = "link";
@@ -15,7 +14,7 @@ void populateData() {
 	getContent(fp, data);
 }
 
-void getTag(char *searchPlace, char *tagName) {
+void getTag(char* searchPlace, char* tagName, char contentsPlace[][600]) {
 	char openingTag[30];
 	char closureTag[30];
 
@@ -56,52 +55,40 @@ void getTag(char *searchPlace, char *tagName) {
 		cleanString(auxOpeningTag);
 
 		if (searchPlace[i] == '<') {
-			// Verificando ocorrências da tag de abertura no XML
+// 			Verificando ocorrências da tag de abertura no XML
 			for (j = i; j < openTagSize + i; j++){
 				auxChar[0] = searchPlace[j];
 				auxChar[1] = '\0';
 				strcat(auxOpeningTag, auxChar);
 			}
 
-			// Verificando correspondência com a tag de abertura
+// 			Verificando correspondência com a tag de abertura
 			if (strcmp(auxOpeningTag, openingTag) == 0){
 
-				// Copia o conteúdo seguinte para `tagContents` até encontrar
-				// a tag de fechamento
-                printf("\n\n\t ¬¬¬¬¬¬¬¬¬¬¬¬  RECORRÊNCIA %d DE %s  ¬¬¬¬¬¬¬¬¬¬¬¬ \n", contentsCount,openingTag);
+// 				Copia o conteúdo seguinte para `tagContents` até encontrar
+// 				a tag de fechamento
 				for (int k = j; k < strlen(searchPlace); k++){
                     
-                    // Transferir conteúdo
-					//printf("%c", searchPlace[k]);
-                    
+//                     Transferir conteúdo
 //                     Building content to transfer
                     auxCharContentTag[0] = searchPlace[k];
                     auxCharContentTag[1] = '\0';
-                    
-                    strcat(tagContents[contentsCount], auxCharContentTag);
-                    printf("\t\t\tContent: %s\n", tagContents[0]);
-                    //printf("%s", auxCharContentTag);
-                    
-//                  Limpando a matriz
-                    //cleanStringMatrix(tagContents, 50);
+                    strcat(contentsPlace[contentsCount], auxCharContentTag);
 
-                    
 					// Buscando tag de fechamento correspondente
 					if (searchPlace[k + 1] == '<' && searchPlace[k + 2] == '/'){
                         cleanString(auxClosureTag);
                         
+                        // Montando a tag de fechamento para fins de verificação
                         for(int l = k + 1; l <= closureTagSize + k; l++){
-                            //printf("%c", searchPlace[l]);
                             auxCharClosureTag[0] = searchPlace[l];
                             auxCharClosureTag[1] = '\0';
                             strcat(auxClosureTag, auxCharClosureTag);
                         }
-                        //printf("(%s && %s) %d", auxClosureTag, closureTag, strcmp(auxClosureTag, closureTag));
                         
                         if(strcmp(auxClosureTag, closureTag) == 0){
                             break;
                         }
-                        //printf("\n");
 					}
 				}
 				contentsCount++;

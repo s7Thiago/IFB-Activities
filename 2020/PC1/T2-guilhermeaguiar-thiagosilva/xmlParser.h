@@ -17,7 +17,7 @@ void populateData();
 
 // Busca recorrências de uma tag nomeada como `tagName` dentro da string 
 // `searchPlace` e armazena o conteúdo de cada recorrência em `storedContents`
-void getTag(char* searchPlace, char* tagName);
+void getTag(char* searchPlace, char* tagName, char contentsPlace[][600]);
 
 
 
