@@ -1,7 +1,7 @@
 #include "xmlParser.h"
 
 //
-char data[8000];
+char data[500000];
 
 // ######### Novas
 void populateData() {
@@ -11,7 +11,7 @@ void populateData() {
 	getContent(fp, data);
 }
 
-void getTag(char* searchPlace, char* tagName, char contentsPlace[][600]) {
+void getTag(char* searchPlace, char* tagName, char contentsPlace[][5000]) {
 	char openingTag[30];
 	char closureTag[30];
 
