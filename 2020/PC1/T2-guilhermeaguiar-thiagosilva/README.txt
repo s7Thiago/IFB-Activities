@@ -37,7 +37,7 @@ Instruções de compilação
         use "make build" para compilar, e nas próximas execuções,
         use make all.
     
-    Fonte de dado usado
+    Fonte de dado usada
         - IFB, Campus taguatinga
         
     Funcionamento do código
