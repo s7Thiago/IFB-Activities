@@ -104,9 +104,7 @@ void buildInnerBody(char *data, char *buildTarget)
         }
     }
 
-    printf("Quantidade de TAGS: %d", itemsCount);
-
-    // 'Materializando' as tags <item>
+       // 'Materializando' as tags <item>
     for (int i = 1; i < itemsCount; i++)
     {
         strcat(buildTarget, "\n\n   <hr> ");
