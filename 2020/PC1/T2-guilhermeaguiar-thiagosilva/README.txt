@@ -11,7 +11,7 @@ Recursos utilizados no desenvolvimento:
     Desenvolvimento
         * Visual Studio Code
         * Gedit
-        * Linux
+        * Linux (Ubuntu e Deepin)
         * Kate
 
     Versionamento
@@ -39,7 +39,22 @@ Instruções de compilação
     
     Fonte de dado usado
         - IFB, Campus taguatinga
+        
+    Funcionamento do código
+        - O projeto possui 4 módulos: main, xmlParser, htmlBuilder e fileOperations onde:
+            * main: Aciona os demais módulos;
+            
+            * xmlParser: Responsável por fazer a análise do XML e salvar o conteúdo de todas
+            as recorrências de uma tag desejada em uma matriz 50 x 5000;
+            
+            * fileOperations: Provê acesso a recursos de leitura e gravação no disco para possibilitar
+            que o XML possa ser processado dentro do programa;
+            
+            * htmlBuilder: responsável por utilizar as saídas obtidas pelo xmlParser e construir
+            um HTML de acordo com a especificação do trabalho;
+            
+            
 
 ================================================
-Repositório do projeto: https://bit.ly/3clZHKJ
+Repositório do projeto: https://bit.ly/35K5Opc
 ================================================
