@@ -5,12 +5,6 @@
 #include <string.h>
 #include "fileOperations.h"
 
-//
-void procurarTag(FILE *fp,char tag[20]);
-
-//
-void pegarTag(FILE *fp, FILE *html);
-
 // ########### Novas
 // transfere os dados do XML para uma variável
 void populateData();

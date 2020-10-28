@@ -2,9 +2,6 @@
 
 //
 char data[8000];
-char *title = "title";
-char *description = "description";
-char *link = "link";
 
 // ######### Novas
 void populateData() {
