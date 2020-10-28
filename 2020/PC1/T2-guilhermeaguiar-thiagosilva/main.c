@@ -8,7 +8,7 @@ int main(void) {
        
     build(data, htmlContent);
     
-    printf("\n\n%s\n\n", htmlContent);
+    saveHmtl(htmlContent);
 
     return 0;
 }

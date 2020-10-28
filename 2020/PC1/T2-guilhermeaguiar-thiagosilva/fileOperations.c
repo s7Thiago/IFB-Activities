@@ -1,5 +1,15 @@
 #include "fileOperations.h"
 
+
+
+void saveHmtl(char *htmlContent){
+	FILE *html;
+	html = fopen("ifb.html","w");
+
+
+	fprintf(html,"%s",htmlContent);
+}
+
 void cleanString(char* target){
 	for(int i =0; i < strlen(target); i++){
 		target[i] = '\0';

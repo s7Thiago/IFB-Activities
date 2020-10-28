@@ -14,7 +14,7 @@ void part1(char* data, char* buildTarget){
     resetAux();
     
 //     Pegando o titulo da materia
-        getTag(data, "title", aux);
+    getTag(data, "title", aux);
     
     
     strcat(buildTarget, "<html>\n");
@@ -23,6 +23,9 @@ void part1(char* data, char* buildTarget){
     strcat(buildTarget, aux[0]);
     strcat(buildTarget, "</title>\n");
     strcat(buildTarget, "</head>\n");
+    strcat(buildTarget, "</html>\n");
+
+
 }
 
 void build(char* content, char* buildTarget) {
