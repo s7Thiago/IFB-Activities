@@ -1,16 +1,22 @@
 #include "xmlParser.h"
 
 extern char data[8000];
-char contentsPlace[50][600];
+char titleContentsPlace[50][600];
+char linkContentsPlace[50][600];
+char urlContentsPlace[50][600];
 
-int main(void)
-{
+int main(void) {
 
 	populateData();
 
-	getTag(data, "title", contentsPlace);
+	getTag(data, "title", titleContentsPlace);
+    printf("Registro title: %s\n", titleContentsPlace[0]);
     
-    printf("Registro 1: %s\n", contentsPlace[0]);
+    getTag(data, "link", linkContentsPlace);
+    printf("Registro link: %s\n", linkContentsPlace[0]);
+    
+    getTag(data, "url", urlContentsPlace);
+    printf("Registro url: %s\n", urlContentsPlace[0]);
     
     printf("\n\n");
 
