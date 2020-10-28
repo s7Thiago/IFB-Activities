@@ -1,20 +1,14 @@
-#include "xmlParser.h"
+#include "htmlBuilder.h"
 
 extern char data[500000];
-char itemContentsPlace[50][5000];
-char linkContent[50][5000];
 
 int main(void) {
-
-    populateData();
-
-    getTag(data, "item", itemContentsPlace);
-    printf("Registro title: %s\n", itemContentsPlace[0]);
     
-    getTag(itemContentsPlace[0], "title", linkContent);
-    printf("\n\nTITLE CONTENT: %s", linkContent[0]);
-
-    printf("\n\n");
+    char htmlContent[40000];
+       
+    build(data, htmlContent);
+    
+    printf("\n\n%s\n\n", htmlContent);
 
     return 0;
 }

@@ -6,7 +6,6 @@ char data[500000];
 // ######### Novas
 void populateData() {
 	FILE *fp;
-	FILE *html;
 	// Armazena o conteúdo do XML na variável `data`
 	getContent(fp, data);
 }

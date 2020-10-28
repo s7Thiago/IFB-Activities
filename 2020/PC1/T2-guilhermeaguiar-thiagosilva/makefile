@@ -1,13 +1,16 @@
 all: rm build run
 
 build: xmlparser
-	gcc main.c xmlParser.o fileOperations.o -o setup
+	gcc main.c xmlParser.o fileOperations.o htmlBuilder.o -o setup
 
 xmlparser: fileoperations
 	gcc -c xmlParser.c
 
-fileoperations:
+fileoperations: htmlBuilder
 	gcc -c fileOperations.c
+
+htmlBuilder:
+	gcc -c htmlBuilder.c
 
 clear:
 	clear
