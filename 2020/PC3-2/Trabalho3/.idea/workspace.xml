@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8430e469-51c7-42f0-a04e-1406d6f5cb6d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Trabalho1/PC3-2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Trabalho2/.idea/Trabalho 3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Trabalho2/Trabalho3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Trabalho 1/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Trabalho 1/.idea/description.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Trabalho 1/.idea/dictionaries/Thiago.xml" beforeDir="false" />
@@ -21,17 +17,6 @@
       <change beforePath="$PROJECT_DIR$/../Trabalho 1/out/production/PC3-2/pc3/ifb/edu/br/ServiceController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Trabalho 1/out/production/PC3-2/pc3/ifb/edu/br/Servico.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Trabalho 1/src/pc3/ifb/edu/br/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Trabalho 3.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trabalho3/br/com/pc3/Compra.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trabalho3/br/com/pc3/Produto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trabalho3/br/com/pc3/ProdutoTeste.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trabalho3/br/com/pc3/Venda.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/pc3/Compra.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/pc3/Produto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/pc3/ProdutoTeste.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/pc3/Venda.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +192,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
