@@ -7,7 +7,9 @@ Autor: Thiago Silva
 Desc: O  bublesort  é  um algoritmo  cujo custo  no  pior  caso é 
 quadrático, ou  seja, o  número  de passos/iterações  necessárias 
 para se ordenar uma entrada cresce de forma quadrática dependendo 
-do tamanho da entrada, e de o quanto ela está desordenada.
+do tamanho  da entrada, e  de o quanto ela está desordenada, isso
+por um lado é ruim, pois o torna lento, mas em contrapartida, ele
+é um algoritmo fácil de implementar.
 
 Alé disso é um método:
 
