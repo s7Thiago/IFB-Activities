@@ -1,30 +1,29 @@
-#include "insertionsort.h"
+#include "mergesort.h"
 
 
 /**
 Autor: Thiago Silva
 
-Desc: O número que comparações do insertion sort é uma progressão aritmética
-de razão 1, isso significa que ele nos dá um tempo quadrático assim como o
-bublesort, ou seja, não é o ideal par entradas grandes, pois pode cair em um
-comportamento onde levaria um tempo incrementado quadraticamente.
+Desc: O mergesort é um algoritmo n log(n), e isso sem dúvida o torna melhor
+do que um algoritmo quadrático, o tornando adequado para entradas grandes,
+funcionando, nesse caso, de maneira muito mais eficiente do que um bublesort
+ou um insertionsort
 
 Observações para o método:
-	* Eficiente para entradas pequenas, por fazer poucas comparações;
-	* Mais rápido que o bublesort, porém, devido ao seu comportamento
-	quadrático, não é recomendado o uso para entradas grandes;
+	* Requer uma quantidade maior de memória (devido aos vetores
+	auxiliares);
+	* É um método que trabalha recursivamente;
 
 Além disso, o método é: 
 
-	* In-place: Não precisa de muita memória extra, precisando de poucas
-	 variáveis auxiliares (além do vetor de entrada) para funcionar;
+	* Não In-place: Para funcionar, precisa de mais memória extra, que vai
+	 desde simples variáveis auxiliares até vetores auxiliares (além do 
+	 vetor de entrada), o fazendo consumir pelo menos o dobro de memória;
 	 
 	* Estável: Elementos iguais conservam suas posições 
 	relativas;
 	
-As classificações acima o tornam um bom método, porém, para entradas
-mouto grandes, o seu uso é desencorajado.
-
+Considerações finais
 **/
 
 int main (void) {
@@ -36,7 +35,7 @@ int main (void) {
 	printv(v, TAM);
 	
 	// Ordenando (usar insertionsortl() para ver a saída com logs)
-	insertionsort(v, TAM);
+	mergesort(v, TAM);
 	
 	printf("DEPOIS\n");
 	printv(v, TAM);
