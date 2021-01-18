@@ -1,10 +1,10 @@
 all: rm build run
 
-build: bublesort
-	gcc main.c bublesort.o -o setup
+build: insertionsort
+	gcc main.c insertionsort.o -o setup
 
-bublesort:
-	gcc -c bublesort.c
+insertionsort:
+	gcc -c insertionsort.c
 	
 clear:
 	clear
