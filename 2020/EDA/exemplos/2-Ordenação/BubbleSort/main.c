@@ -18,6 +18,9 @@ Alé disso é um método:
 	 
 	* Estável: Elementos iguais conservam suas posições 
 	relativas;
+	
+As classificações acima o tornam um bom método, porém, para entradas
+mouto grandes, o seu uso é desencorajado.
 
 **/
 
