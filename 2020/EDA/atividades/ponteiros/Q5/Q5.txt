@@ -1,0 +1,1 @@
+Primeiro criamos um ponteiro p apontando para o endereço de memória de uma variável v que porventura queremos manipular. Então, dessa forma, podemos, através do ponteiro p, ter acesso ao endereço de memória onde a variável v em quetão está alocada, e assim fazer as alterações pertinentes na mesma. 
