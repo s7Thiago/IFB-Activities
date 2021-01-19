@@ -31,9 +31,6 @@ Instruções de compilação
         - Na primeira execução (quando não existem arquivos compilados),
         use "make build" para compilar, e nas próximas execuções,
         use make all.
-    
-    Fonte de dado usada
-        - IFB, Campus taguatinga
         
     Funcionamento do código
         - O projeto possui 3 módulos: utils, insertion_sort e hybrid_merge_sort onde:
@@ -44,7 +41,12 @@ Instruções de compilação
             
             * insertion_sort: Contém a função responsável por realizar o insertion sort;
             
+            
+            OBS: Para mais detalhes, consultar os comentários no código. Nos comentários do arquivo
+            main.c existem alguns instruindo como adaptar as entradas para sequências de inteiros de 
+            tamanho (10^4, 10^5, 10^6)
+            
 
 ================================================
-Repositório do projeto: https://bit.ly/35K5Opc
+Repositório do projeto: https://bit.ly/3nR7zIg
 ================================================
