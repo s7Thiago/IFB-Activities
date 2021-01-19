@@ -29,16 +29,16 @@ Considerações finais
 int main (void) {
 
 	// vetor que vamos ordenar
-	int v[TAM] = {11, 29, 7, 17, 3, 13, 5, 19, 23, 2};
+	int v[TAM + 5] = {11, 29, 7, 17, 3, 13, 5, 19, 23, 2 /***/, 65, 1, 22, 14, 18};
 	
 	printf("ANTES\n");
-	printv(v, TAM);
+	printv(v, TAM + 5);
 	
 	// Ordenando (usar insertionsortl() para ver a saída com logs)
-	mergesort(v, TAM);
+	mergesort(v, TAM + 5);
 	
 	printf("DEPOIS\n");
-	printv(v, TAM);
+	printv(v, TAM + 5);
 	
 	
 	return 0;
