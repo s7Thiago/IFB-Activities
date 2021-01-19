@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8430e469-51c7-42f0-a04e-1406d6f5cb6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Trabalho 1/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Trabalho 1/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Trabalho 1/.idea/dictionaries/Thiago.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Trabalho 1/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Trabalho 1/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Trabalho 1/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Trabalho 1/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Trabalho 1/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Trabalho 1/PC3-2.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Trabalho 1/out/production/PC3-2/pc3/ifb/edu/br/Aluno.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Trabalho 1/out/production/PC3-2/pc3/ifb/edu/br/ContaCorrente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Trabalho 1/out/production/PC3-2/pc3/ifb/edu/br/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Trabalho 1/out/production/PC3-2/pc3/ifb/edu/br/ServiceController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Trabalho 1/out/production/PC3-2/pc3/ifb/edu/br/Servico.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Trabalho 1/src/pc3/ifb/edu/br/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +82,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="show.migrate.to.gradle.popup" value="false" />
