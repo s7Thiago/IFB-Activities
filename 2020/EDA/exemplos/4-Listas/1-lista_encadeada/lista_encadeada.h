@@ -71,4 +71,16 @@ void list_remove_tail(list_t *l);
 // Remove um elemento na posição i da lista
 void list_remove(list_t *l, size_t i);
 
+// Acessa a cabeça da lista
+void *list_access_head(list_t *l);
+
+// Acessa a cauda da lista
+void *list_access_tail(list_t *l);
+
+// acessa o i-ésimo elemento da lista
+void *list_access(list_t *l, size_t i);
+
+// Realiza a limpeza da lista
+void list_delete(list_t **l);
+
 #endif

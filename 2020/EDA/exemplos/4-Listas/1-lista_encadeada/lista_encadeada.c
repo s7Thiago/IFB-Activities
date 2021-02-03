@@ -304,3 +304,84 @@ void list_remove(list_t *l, size_t i)
         l->size--;
     }
 }
+
+// Acessando um dado que está na cabeça da lista
+void *list_access_head(list_t *l)
+{
+    /**
+     * * Apenas debug:
+     * Aborta o programa se a lista não tem cabeça (é vazia)
+     * **/
+    assert(!(list_empty(l)));
+
+    // Retornando o dado na cabeça da dada lista
+    return (l->head->data);
+}
+
+// Acessando um dado que está na cauda da lista
+void *list_access_tail(list_t *l)
+{
+    /**
+     * * Apenas debug:
+     * Aborta o programa se a lista não tem cabeça (é vazia)
+     * **/
+    assert(!(list_empty(l)));
+
+    // Retornando o dado na cabeça da dada lista
+    return (l->tail->data);
+}
+
+// Acessando um  elemento na posição i da lista
+void *list_access(list_t *l, size_t i)
+{
+    /**
+     * * Apenas debug:
+     * Aborta o programa se a posição que será acessada for
+     * inválida
+     * **/
+    assert(!list_empty(l) && i < list_size(l));
+
+    // Se i==0, o acesso é na cabeça
+    if (i == 0)
+    {
+        return list_access_head(l);
+    }
+
+    // Se i== list_size(l) - 1, o acesso é na cauda
+    else if (i == list_size(l) - 1)
+    {
+        return (list_access_tail(l));
+    }
+
+    // Caso contrário, percorremos a lista até o i-ésimo elemento
+    size_t j;
+    list_iterator_t it = l->head;
+    for (j = 0; j < i; j++)
+    {
+        it = it->next;
+    }
+
+    // O campo dado do elemento é retornado
+    return (it->data);
+}
+
+// Realiza a limpeza de uma lista removendo a cabeça
+void list_delete(list_t **l)
+{
+    // Enquanto a lista não for vazia, remove a cabeça
+    while (!list_empty(*l))
+    {
+        list_remove_head(*l);
+    }
+
+    // Desaloca o espaço para a estrutura de dados
+    free(*l);
+
+    // Atribui NULL ao ponteiro para a nossa lista
+    *l = NULL;
+}
+
+/**
+ * * Tempo de vídeo
+ * 50:50
+ * **/
