@@ -1,5 +1,6 @@
 #include "lista_encadeada.h"
 
+// Inicializando uma lista encadeada juntamente com seus membros
 void list_initialize(list_t **l, list_node_constructor_fn constructor, list_node_destructor_fn destructor)
 {
     // Aloca espaço para a estrutura lista

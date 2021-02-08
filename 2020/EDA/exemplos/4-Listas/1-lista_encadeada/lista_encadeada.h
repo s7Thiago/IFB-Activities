@@ -41,6 +41,9 @@ typedef struct list_t
  * **/
 typedef list_node_t *list_iterator_t;
 
+// Inicializa uma lista encadeada juntamente com seus membros
+void list_initialize(list_t **l, list_node_constructor_fn constructor, list_node_destructor_fn destructor);
+
 // Retorna o tamanho da lista
 size_t list_size(list_t *l);
 
