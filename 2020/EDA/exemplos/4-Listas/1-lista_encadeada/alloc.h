@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <string.h>
 
 // Chama o malloc tradicional, e trata se houver algum problema
 void *mallocx(size_t n);
