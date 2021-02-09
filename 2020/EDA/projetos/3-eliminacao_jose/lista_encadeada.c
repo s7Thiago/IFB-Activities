@@ -248,8 +248,7 @@ void list_remove_tail(list_t *l)
 // Removendo um elemento na posição i da lista
 void list_remove(list_t *l, size_t i)
 {
-
-        /**
+    /**
      * * Debug apenas:
      * Aborta o programa se a remoção estiver sendo feita em uma
      * lista vazia ou em uma posição inexistente da lista
@@ -382,8 +381,3 @@ void list_delete(list_t **l)
     // Atribui NULL ao ponteiro para a nossa lista
     *l = NULL;
 }
-
-/**
- * * Tempo de vídeo
- * 50:50
- * **/

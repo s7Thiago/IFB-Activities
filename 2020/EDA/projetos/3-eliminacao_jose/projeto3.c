@@ -58,9 +58,6 @@ void eliminar(list_t *lista, size_t nPessoas, size_t indiceEscolhido)
 {
     scanf("%ld %ld", &nPessoas, &indiceEscolhido);
 
-    if (indiceEscolhido > nPessoas)
-        indiceEscolhido = nPessoas;
-
     // Lendo os nomes das i pessoas
     int i;
     for (i = 0; i < nPessoas; i++)
@@ -71,15 +68,32 @@ void eliminar(list_t *lista, size_t nPessoas, size_t indiceEscolhido)
         list_append(lista, &p);
     }
 
-    // size_t target = indiceEscolhido - 1;
-
-    // printf("ALVO: %ld\n", target);
-    // imprime_pessoa(list_access(lista, target));
-
     while (list_size(lista) > 1)
     {
-        list_remove(lista, indiceEscolhido - 1);     // Removendo o elemento no indice escolhido
-        list_append(lista, list_access_head(lista)); // Copia a cabeça para a cauda da lista
-        list_remove_head(lista);                     // Remove a cabeça da lista
+
+        if (indiceEscolhido >= nPessoas)
+        {
+            indiceEscolhido = nPessoas - 1;
+
+            // Copiando os j primeiros elementos anteriores ao indice desejado para o fim da lista
+            for (size_t j = 2; j < indiceEscolhido - 1; j++)
+            {
+                list_append(lista, list_access(lista, j));
+            }
+
+            // Removendo os j primeiros elementos
+            for (size_t j = 0; j < indiceEscolhido - 1; j++)
+            {
+                indiceEscolhido--;
+                list_remove_head(lista);
+            }
+        }
+
+        else
+        {
+            list_remove(lista, indiceEscolhido - 1);     // Removendo o elemento no indice escolhido
+            list_append(lista, list_access_head(lista)); // Copia a cabeça para a cauda da lista
+            list_remove_head(lista);
+        } // Remove a cabeça da lista
     }
 }

@@ -2,8 +2,6 @@
 
 int main(void)
 {
-    /* code */
-    printf("Está tudo ok\n\n");
     list_t *l1;                       // Lista
     size_t nPessoas, indiceEscolhido; // Alvos da entrada de dados principal
 
