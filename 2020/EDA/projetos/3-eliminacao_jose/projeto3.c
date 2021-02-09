@@ -76,7 +76,7 @@ void eliminar(list_t *lista, size_t nPessoas, size_t indiceEscolhido)
             indiceEscolhido = nPessoas - 1;
 
             // Copiando os j primeiros elementos anteriores ao indice desejado para o fim da lista
-            for (size_t j = 2; j < indiceEscolhido - 1; j++)
+            for (size_t j = 0; j < indiceEscolhido; j++)
             {
                 list_append(lista, list_access(lista, j));
             }
