@@ -1,50 +1,57 @@
+var btn = document.getElementById("btn-calcular");
+var fieldQtde = document.getElementById("field-1");
+var fieldValorMin = document.getElementById("field-2");
+var fieldValorMax = document.getElementById("field-3");
+
 //
 btn.addEventListener("click", () => {
-    var report = document.getElementById("report");
-    var statistcs = document.getElementById("details");
-    var alunos = [];
-    var aprovados = 0;
-    var reprovados = 0;
-
-    // Adicionando os dados para os 20 alunos
-    for (let i = 0; i < 20; i++) {
-
-        var aluno = {
-            nr: i,
-            nota: Math.floor(Math.random() * 100),
-        };
-
-        aluno.status = aluno.nota > 50 ? "APROVADO" : "REPROVADO";
-
-        alunos.push(aluno);
-    }
-
-    for (let i = 0; i < 20; i++) {
+    var collection = [];
 
 
-        var row = report.insertRow(2);
+    //colocando os valores minimo e maximo em posições aleatórias
+    collection[ Math.floor(Math.random() * fieldQtde.value + 1) ] = fieldValorMin.value;
+    collection[ Math.floor(Math.random() * fieldQtde.value + 1) ] = fieldValorMax.value;
 
-        var nr = row.insertCell(0);
-        nr.innerHTML = `${alunos[ i ].nr}`;
 
-        var nota = row.insertCell(1);
-        nota.innerHTML = `${alunos[ i ].nota}`;
+    fillArray(collection, fieldQtde.value, fieldValorMax.value, fieldValorMin);
 
-        var status = row.insertCell(2);
-        status.innerHTML = `${alunos[ i ].status}`;
-    }
+    console.log("teste: ", collection);
 
-    for (let i = 0; i < 20; i++) {
-        if (alunos[ i ].status === "APROVADO") {
-            aprovados++;
+});
+
+
+function fillArray(collection, qtde, max, min) {
+    // Preenchendo as demais posições com fieldQtde.value números que não existam no array
+    do {
+
+        let pushTarget = getRandomInt(min, max);
+
+        if (collection.includes(pushTarget)) {
+            collection.push(pushTarget);
         } else {
-            reprovados++;
+            let pushTarget = getRandomInt(min, max);
+            collection.push(pushTarget);
+
+        }
+
+    } while (!isEmptyIndex(collection));
+
+}
+
+// Verifica se existe posição vazia no array
+function isEmptyIndex(array) {
+    for (let i = 0; i < array.length; i++) {
+        if (typeof array[ i ] === "undefined") {
+            return true;
         }
 
     }
 
-    statistcs.innerHTML = "";
-    statistcs.insertAdjacentHTML("beforeend", `APROVADOS: ${aprovados} (${(aprovados * 10) / 2}%)   REPROVADOS: ${reprovados} (${(reprovados * 10) / 2}%)`);
+    return false;
+}
 
-});
-
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
