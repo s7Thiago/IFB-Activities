@@ -6,8 +6,7 @@ size_t: Represeta números inteiros sem sinal. Pode ser usado para armazenar val
 |--|
 |```void* malloc(size_t size);```|
 
-
-desc: Recebe um inteiro sem sinal do tipo size_t, que representa a quantidade de bytes que queremos alocar. Por exemplo, para alocar 20 bytes, chamamos ```malloc(20)```. O retorno dessa função é um ponteiro genérico(void*) que aponta para a região de memória onde estão os bytes alocados por ela, que por sua voz, por ser do tipo ```void*```, pode ter como valor armazenado qualquer outro tipo de dado (```int```, ```double```, ```char```, ```string```, ```etc```), pois o que é retornado é somente o endereço base, que posteriormente pode sofrer um cast para o valor que estiver sendo trabalhado pelo programador.
+ Recebe um inteiro sem sinal do tipo size_t, que representa a quantidade de bytes que queremos alocar. Por exemplo, para alocar 20 bytes, chamamos ```malloc(20)```. O retorno dessa função é um ponteiro genérico(void*) que aponta para a região de memória onde estão os bytes alocados por ela, que por sua voz, por ser do tipo ```void*```, pode ter como valor armazenado qualquer outro tipo de dado (```int```, ```double```, ```char```, ```string```, ```etc```), pois o que é retornado é somente o endereço base, que posteriormente pode sofrer um cast para o valor que estiver sendo trabalhado pelo programador.
 
 *obs:* Se por acaso, o programador solicitar ao malloc uma quantidade de memória em bytes maior do que a que realmente está a disposição, o que é retornado é uma referência para NULL, ou seja, um ponteiro para NULL.
 
@@ -16,7 +15,7 @@ desc: Recebe um inteiro sem sinal do tipo size_t, que representa a quantidade de
 |--|
 |```void* calloc(size_t num, size_t size);```|
 
-desc: Basicamente faz a mesma coisa que malloc, a diferença é que ela recebe a quantidade de bytes através de 2 parâmetros:
+__DESC:__ Basicamente faz a mesma coisa que malloc, a diferença é que ela recebe a quantidade de bytes através de 2 parâmetros:
 **num**: Número de espaços de memória que queremos criar;
 **size**: Tamanho em bytes de cada espaço de memória;
 
@@ -29,7 +28,7 @@ Outra diferença do calloc para o malloc, é que além de alocar dessa forma, el
 |```void* realloc(void* ptr, size_t size);```|
 
 
-**desc**: Redimensiona a área de memória apontada por ptr. Em outras palavras, ele recebe uma área de memória que já está alocada dinamicamente (ptr), e o novo tamanho dessa área (size). O seu retorno consiste em um ponteiro para uma área de memória com o novo tamanho. Essa função pode ser usada para aumentar, ou diminuir a área de memória alocada dinamicamente. É importante destacar que pode ser que o resultado do retorno dessa função seja uma área de alocada em outra região da memória, dependendo do espaço disponível na mesma região onde ptr se encontrar. Ou seja, a nova região retornada pode ser diferente da original, se necessário. Por fim, ele realloc retorna NULL em caso de falha (a região antiga ainda pode ser acessada, em caso de falha).
+__DESC:__ Redimensiona a área de memória apontada por ptr. Em outras palavras, ele recebe uma área de memória que já está alocada dinamicamente (ptr), e o novo tamanho dessa área (size). O seu retorno consiste em um ponteiro para uma área de memória com o novo tamanho. Essa função pode ser usada para aumentar, ou diminuir a área de memória alocada dinamicamente. É importante destacar que pode ser que o resultado do retorno dessa função seja uma área de alocada em outra região da memória, dependendo do espaço disponível na mesma região onde ptr se encontrar. Ou seja, a nova região retornada pode ser diferente da original, se necessário. Por fim, ele realloc retorna NULL em caso de falha (a região antiga ainda pode ser acessada, em caso de falha).
 OBS:
 * Se size for menor que a area antiga, o retorno será uma área encolhida;
 * Se size for maior que a area antiga, o retorno será uma área aumentada o número de bytes necessários;
@@ -46,7 +45,7 @@ OBS:
 |```void free(void* ptr);```|
 
 
-**desc**: Desaloca uma região de memória ptr alocada dinamicamente. Quando free é usada, basicamente, ptr deixa de apontar para uma região, ou seja, a região apontada é totalmente liberada, e ptr fica livre;
+__DESC:__ Desaloca uma região de memória ptr alocada dinamicamente. Quando free é usada, basicamente, ptr deixa de apontar para uma região, ou seja, a região apontada é totalmente liberada, e ptr fica livre;
 
 
 
