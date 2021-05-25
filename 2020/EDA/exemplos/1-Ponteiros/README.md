@@ -6,7 +6,7 @@
 |--|
 |```void* malloc(size_t size);```|
 
- Recebe um inteiro sem sinal do tipo size_t, que representa a quantidade de bytes que queremos alocar. Por exemplo, para alocar 20 bytes, chamamos ```malloc(20)```. O retorno dessa função é um ponteiro genérico(void*) que aponta para a região de memória onde estão os bytes alocados por ela, que por sua voz, por ser do tipo ```void*```, pode ter como valor armazenado qualquer outro tipo de dado (```int```, ```double```, ```char```, ```string```, ```etc```), pois o que é retornado é somente o endereço base, que posteriormente pode sofrer um cast para o valor que estiver sendo trabalhado pelo programador.
+ Recebe um inteiro sem sinal do tipo size_t, que representa a quantidade de bytes que queremos alocar. Por exemplo, para alocar 20 bytes, chamamos ```malloc(20)```. O retorno dessa função é um ponteiro genérico(void*) que aponta para a região de memória onde estão os bytes alocados por ela, que por sua voz, por ser do tipo ```void*```, pode ter como valor armazenado qualquer outro tipo de dado (```int```, ```double```, ```char```, ```string```, etc...), pois o que é retornado é somente o endereço base, que posteriormente pode sofrer um cast para o valor que estiver sendo trabalhado pelo programador.
 
 *obs:* Se por acaso, o programador solicitar ao malloc uma quantidade de memória em bytes maior do que a que realmente está a disposição, o que é retornado é uma referência para ```NULL```, ou seja, um ponteiro para ```NULL```.
 
