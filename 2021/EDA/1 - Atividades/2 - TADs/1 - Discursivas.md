@@ -64,8 +64,58 @@
 #
 > ## **3)** Desenvolva um TAD para um retângulo. Inclua as funções de inicializações necessárias, as operações para obtenção dos dados armazenados no TAD (base e altura), e a operação que retorne a área do retângulo (A = Base x Altura). Para especificação do sistema, não é necessário implementar o corpo das funções.
 >
+>> triangulo.h
+>
 >> ```c
->> R)
+>> // Definindo o tipo Triangulo
+>> typedef struct triangulo Triangulo;
+>>
+>> // Cria um triangulo e retorna um ponteiro para o mesmo
+>> Triangulo* criarTriangulo(int ladoA, int ladoB, int ladoC);
+>>
+>> // Retorna a medida do lado A do triangulo
+>> int obterLadoA(Triangulo* t);
+>>
+>> // Retorna a medida do lado B do triangulo
+>>int obterLadoB(Triangulo* t);
+>>
+>> // Retorna a medida do lado C do triangulo
+>>int obterLadoC(Triangulo* t);
+>> ```
+>
+>> triangulo.c
+>
+>> ```c
+>> include <stdlib.h> // malloc, free, exit
+>> include <stdio.h>  // printf
+>> include "triangulo.h"
+>> 
+>> // Definindo a struct para o tipo Triangulo
+>> struct triangulo {
+>>	int ladoA;
+>>	int ladoB;
+>>	int ladoC;
+>>};
+>>
+>> // Implementação da função que cria um triangulo e retorna um ponteiro para o mesmo
+>> Triangulo* criarTriangulo(int ladoA, int ladoB, int ladoC){
+>>	...
+>>}
+>>
+>> // Implementação da função que retorna a medida do lado A do triangulo
+>> int obterLadoA(Triangulo* t){
+>>	...
+>>}
+>>
+>> // Implementação da função que retorna a medida do lado B do triangulo
+>>int obterLadoB(Triangulo* t){
+>>	...
+>>}
+>>
+>> // Implementação da função que retorna a medida do lado C do triangulo
+>>int obterLadoC(Triangulo* t){
+>>	...
+>>}
 >> ```
 
 #
