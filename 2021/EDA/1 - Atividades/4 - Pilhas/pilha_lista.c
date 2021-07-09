@@ -38,6 +38,7 @@ void* stack_top(stack_t* s) {
 void stack_pop(stack_t* s) {
 	assert(!stack_empty(s));
 	stack_iterator_t it = s->top;
+	s->top = s->top->next;
 	s->destructor(it->data);
 	free(it);
 	s->size--;
