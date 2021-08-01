@@ -32,43 +32,44 @@ int main(void)
 {
 
 	stack_t *s;
-	char *str = "ESTE EXERCICIO E MUITO FACIL.";
-	char *resultado = mallocx(sizeof(char) * strlen(str));
-	int cont = 0;
+	char *str = "ARARA";
+	char *resultado = mallocx(strlen(str));
 
 	// Inicializando a pilha
 	stack_initialize(&s, constructor_char, destructor_char);
 
-	printf("\ntexto: %s\nsaída:", str);
-
 	// Inserindo os elementos na pilha
 	for (int i = 0; i < strlen(str); i++)
 	{
-		cont++;
 		stack_push(s, &str[i]);
+	}
 
-		// Sempre que encontrar um espaço, insere os elementos dela no resultado e esvazia a pilha
-		if (str[i] == ' ' || str[i] == '.')
-		{
-			while (!stack_empty(s))
-			{
-				char c = *(char *)stack_top(s);
-
-				if (c == '.')
-				{
-					c = ' ';
-				}
-
-				printf("%c", c);
-				stack_pop(s);
-			}
-
-			cont = 0;
-		}
+	// Armazenando elementos da pilha em resultado na ordem inversa
+	int cont = 0;
+	while (!stack_empty(s))
+	{
+		char c = *(char *)stack_top(s);
+		resultado[cont] = c;
+		stack_pop(s);
+		cont++;
 	}
 
 	// Imprimindo a pilha
-	// print_stack(s);
+	print_stack(s);
+
+	printf("\nentrada: %s\n", str);
+	printf("reverso: %s\n=============================\n\n", resultado);
+
+	if (strcmp(str, resultado) == 0)
+	{
+		printf("É um palíndromo");
+	}
+	else
+	{
+		printf("Não é palíndromo");
+	}
+
+	printf("\n\n");
 
 	stack_delete(&s);
 	return 0;
