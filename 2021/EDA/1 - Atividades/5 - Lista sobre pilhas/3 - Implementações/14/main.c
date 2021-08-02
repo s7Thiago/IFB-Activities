@@ -27,44 +27,46 @@ void showstack(stack_t *stack)
 	printf("{ NULL } ]");
 }
 
-void inverter(stack_t *s)
+void transfer(stack_t *s, stack_t *s2)
 {
 	stack_t *tmp;
+	stack_iterator_t it;
 
-	// Inicializando a pilha
 	stack_initialize(&tmp, constructor_int, destructor_int);
 
-	// Invertendo a pilha e colocando na pilha temporária
-	while (!stack_empty(s))
+	// Copia os elementos de s para uma pilha temporária
+	// com a intenção de passar para s2 depois na ordem original de s
+	for (it = s->top; it != NULL; it = it->next)
 	{
-		// int elemento = *(int *)stack_top(s);
-
-		stack_push(tmp, (int *)stack_top(s));
-		stack_pop(s);
+		stack_push(tmp, it->data);
 	}
 
-	printf("\nTemporária: ");
-	showstack(tmp);
-
-	stack_delete(&tmp);
+	// Passando os elementos da pilha temporária para s2
+	// para que eles estejam na mesma ordem da pilha s
+	for (it = tmp->top; it != NULL; it = it->next)
+	{
+		stack_push(s2, it->data);
+	}
 }
 
 int main(void)
 {
 
 	stack_t *s;
+	stack_t *s2;
 
 	// Inicializando a pilha
 	stack_initialize(&s, constructor_int, destructor_int);
+	stack_initialize(&s2, constructor_int, destructor_int);
 
 	int a = 34;
 	int b = 23;
 	int c = 13;
 	int d = 7;
-	int e = 93;
+	int e = 15;
 	int f = 10;
 
-	// Inserindo elementos na pilha
+	// Inserindo elementos na pilha s
 	stack_push(s, &a);
 	stack_push(s, &b);
 	stack_push(s, &c);
@@ -72,17 +74,17 @@ int main(void)
 	stack_push(s, &e);
 	stack_push(s, &f);
 
-	printf("Pilha original: ");
+	printf("Pilha s: ");
 	showstack(s);
 
-	inverter(s);
+	transfer(s, s2);
 
-	// printf("\nPilha invertida: ");
-
-	// Imprime a pilha invertida e esvazia
-	// showstack(s);
+	// Transferindo elementos da pilha s para a pilha s2
+	printf("\nPilha s2: ");
+	showstack(s2);
 
 	stack_delete(&s);
+	stack_delete(&s2);
 
 	return 0;
 }

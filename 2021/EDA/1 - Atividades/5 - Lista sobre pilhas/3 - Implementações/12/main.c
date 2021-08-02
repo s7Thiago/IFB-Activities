@@ -27,44 +27,36 @@ void showstack(stack_t *stack)
 	printf("{ NULL } ]");
 }
 
-void inverter(stack_t *s)
+void isBiggerThan(stack_t *s, stack_t *s2)
 {
-	stack_t *tmp;
-
-	// Inicializando a pilha
-	stack_initialize(&tmp, constructor_int, destructor_int);
-
-	// Invertendo a pilha e colocando na pilha temporária
-	while (!stack_empty(s))
+	if (stack_size(s) > stack_size(s2))
 	{
-		// int elemento = *(int *)stack_top(s);
-
-		stack_push(tmp, (int *)stack_top(s));
-		stack_pop(s);
+		printf("A primeira pilha tem mais elementos que a primeira.\n");
 	}
-
-	printf("\nTemporária: ");
-	showstack(tmp);
-
-	stack_delete(&tmp);
+	else
+	{
+		printf("A segunda pilha tem mais elementos que a primeira.\n");
+	}
 }
 
 int main(void)
 {
 
 	stack_t *s;
+	stack_t *s2;
 
 	// Inicializando a pilha
 	stack_initialize(&s, constructor_int, destructor_int);
+	stack_initialize(&s2, constructor_int, destructor_int);
 
 	int a = 34;
 	int b = 23;
 	int c = 13;
 	int d = 7;
-	int e = 93;
+	int e = 15;
 	int f = 10;
 
-	// Inserindo elementos na pilha
+	// Inserindo elementos na pilha s
 	stack_push(s, &a);
 	stack_push(s, &b);
 	stack_push(s, &c);
@@ -72,17 +64,19 @@ int main(void)
 	stack_push(s, &e);
 	stack_push(s, &f);
 
-	printf("Pilha original: ");
-	showstack(s);
+	// Inserindo elementos na pilha s2
+	stack_push(s2, &a);
+	stack_push(s2, &b);
+	stack_push(s2, &c);
+	stack_push(s2, &d);
+	stack_push(s2, &e);
+	stack_push(s2, &c);
+	stack_push(s2, &f);
 
-	inverter(s);
-
-	// printf("\nPilha invertida: ");
-
-	// Imprime a pilha invertida e esvazia
-	// showstack(s);
+	isBiggerThan(s, s2);
 
 	stack_delete(&s);
+	stack_delete(&s2);
 
 	return 0;
 }
