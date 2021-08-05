@@ -4,7 +4,7 @@
 void *constructor_int(void *data)
 {
 	void *ptr = mallocx(sizeof(int));
-	memcpy(ptr, data, sizeof(int));
+	memcpy(ptr, data, sizeof(char));
 	return ptr;
 }
 
@@ -27,35 +27,52 @@ void showstack(stack_t *stack)
 	printf("{ NULL } ]");
 }
 
-void showtop(stack_t *s)
+int contOdd(stack_t *s)
 {
-	printf("\nElemento no topo: %d", *(int *)stack_top(s));
-	stack_pop(s);
+	stack_iterator_t it;
+	int odd = 0;
+
+	// Contando os elementos ímpares
+	for (it = s->top; it != NULL; it = it->next)
+	{
+		if (*(int *)(it->data) % 2 != 0)
+		{
+			odd++;
+		}
+	}
+
+	return odd;
 }
 
 int main(void)
 {
 
 	stack_t *s;
-	int a = 15;
-	int b = 7;
-	int c = 31;
 
 	// Inicializando a pilha
 	stack_initialize(&s, constructor_int, destructor_int);
 
+	int a = 34;
+	int b = 23;
+	int c = 13;
+	int d = 7;
+	int e = 15;
+	int f = 10;
+
+	// Inserindo elementos na pilha s
 	stack_push(s, &a);
 	stack_push(s, &b);
 	stack_push(s, &c);
+	stack_push(s, &d);
+	stack_push(s, &e);
+	stack_push(s, &f);
 
-	printf("\nPilha completa: ");
+	printf("\nPilha: ");
 	showstack(s);
-	showtop(s);
 
-	printf("\nNova pilha: ");
-	showstack(s);
+	printf("\nquantidade de pares: %d\n", contOdd(s));
 
-	printf("\n");
 	stack_delete(&s);
+
 	return 0;
 }
