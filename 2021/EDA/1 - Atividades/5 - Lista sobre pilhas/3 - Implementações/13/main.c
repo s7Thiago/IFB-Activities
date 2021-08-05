@@ -4,7 +4,7 @@
 void *constructor_int(void *data)
 {
 	void *ptr = mallocx(sizeof(int));
-	memcpy(ptr, data, sizeof(char));
+	memcpy(ptr, data, sizeof(int));
 	return ptr;
 }
 
@@ -27,7 +27,7 @@ void showstack(stack_t *stack)
 	printf("{ NULL } ]");
 }
 
-void isBiggerThan(stack_t *s, stack_t *s2)
+void stackequals(stack_t *s, stack_t *s2)
 {
 
 	// Verifica se as duas pilhas tem o mesmo número de elementos
@@ -38,29 +38,29 @@ void isBiggerThan(stack_t *s, stack_t *s2)
 	}
 
 	// verificando elementos uma a um
-
 	stack_iterator_t it;
 	stack_iterator_t it2 = s2->top;
 	for (it = s->top; it != NULL; it = it->next)
 	{
+		it2 = it2->next;
 		printf("[%d == %d]\n", it->data, it2->data);
+
 		if (it->data == it2->data)
 		{
-			it2 = it2->next;
+			printf("\nAs pilhas são iguais\n");
+			return;
 		}
 		else
 		{
-			printf("O elemento %d é diferente de %d\n", *(int *)it->data, it2->data);
+			printf("\nAs pilhas não são iguais.\n(");
+			printf("O elemento %ld é diferente de %ld)\n", *(int *)it->data, *(int *)it2->data);
 			return;
 		}
 	}
-
-	printf("As pilhas são iguais\n");
 }
 
 int main(void)
 {
-
 	stack_t *s;
 	stack_t *s2;
 
@@ -74,6 +74,7 @@ int main(void)
 	int d = 7;
 	int e = 15;
 	int f = 10;
+	int g = 19;
 
 	// Inserindo elementos na pilha s
 	stack_push(s, &a);
@@ -97,7 +98,7 @@ int main(void)
 	showstack(s2);
 
 	printf("\n\n");
-	isBiggerThan(s, s2);
+	stackequals(s, s2);
 
 	stack_delete(&s);
 	stack_delete(&s2);

@@ -73,6 +73,14 @@ int main(void)
 	stack_push(s2, &c);
 	stack_push(s2, &f);
 
+	printf("Pilha 1: ");
+	showstack(s);
+
+	printf("\nPilha 2: ");
+	showstack(s2);
+
+	printf("\n\n");
+
 	isBiggerThan(s, s2);
 
 	stack_delete(&s);

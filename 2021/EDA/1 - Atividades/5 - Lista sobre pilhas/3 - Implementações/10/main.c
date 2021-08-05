@@ -4,7 +4,7 @@
 void *constructor_int(void *data)
 {
 	void *ptr = mallocx(sizeof(int));
-	memcpy(ptr, data, sizeof(char));
+	memcpy(ptr, data, sizeof(int));
 	return ptr;
 }
 
@@ -62,6 +62,7 @@ void analise(stack_t *s)
 
 		stack_pop(s);
 	}
+	media /= qtde;
 
 	printf("\n\nmenor: %d\n", menor);
 	printf("maior: %d\n", maior);

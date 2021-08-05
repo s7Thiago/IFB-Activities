@@ -4,7 +4,7 @@
 void *constructor_int(void *data)
 {
 	void *ptr = mallocx(sizeof(int));
-	memcpy(ptr, data, sizeof(char));
+	memcpy(ptr, data, sizeof(int));
 	return ptr;
 }
 
@@ -15,20 +15,17 @@ void destructor_int(void *data)
 }
 
 // Imprime de maneira didática os elementos de uma pilha
-void print_stack(stack_t *stack)
+// Imprime de maneira didática os elementos de uma pilha
+void showstack(stack_t *stack)
 {
-	printf("[ ");
-	while (!stack_empty(stack))
-	{
-		char c = *(char *)stack_top(stack);
-		printf("%d", c);
-		if (stack_size(stack) > 1)
-			printf(" - ");
-		else
-			printf(" ]");
+	stack_iterator_t it;
 
-		stack_pop(stack);
+	printf("[ ");
+	for (it = stack->top; it != NULL; it = it->next)
+	{
+		printf("%d, ", *(int *)it->data);
 	}
+	printf("{ NULL } ]");
 }
 
 int main(void)
@@ -69,7 +66,7 @@ int main(void)
 	}
 
 	// Printing the sorted stack
-	print_stack(tmp);
+	showstack(tmp);
 
 	stack_delete(&s);
 	stack_delete(&tmp);

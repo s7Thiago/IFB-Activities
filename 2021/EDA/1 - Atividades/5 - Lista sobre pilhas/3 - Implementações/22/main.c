@@ -27,62 +27,36 @@ void showstack(stack_t *stack)
 	printf("{ NULL } ]");
 }
 
-void inverter(stack_t *s)
+void showtop(stack_t *s)
 {
-	stack_t *tmp;
 
-	// Inicializando a pilha
-	stack_initialize(&tmp, constructor_int, destructor_int);
-
-	// Invertendo a pilha e colocando na pilha temporária
-	while (!stack_empty(s))
-	{
-		// int elemento = *(int *)stack_top(s);
-
-		stack_push(tmp, (int *)stack_top(s));
-		stack_pop(s);
-	}
-
-	printf("\nInvertida: ");
-	showstack(tmp);
-
-	stack_delete(&tmp);
+	printf("\nElemento no topo: %d", *(int *)stack_top(s));
+	stack_pop(s);
 }
 
 int main(void)
 {
 
 	stack_t *s;
+	int a = 15;
+	int b = 7;
+	int c = 31;
 
 	// Inicializando a pilha
 	stack_initialize(&s, constructor_int, destructor_int);
 
-	int a = 34;
-	int b = 23;
-	int c = 13;
-	int d = 7;
-	int e = 93;
-	int f = 10;
-
-	// Inserindo elementos na pilha
 	stack_push(s, &a);
 	stack_push(s, &b);
 	stack_push(s, &c);
-	stack_push(s, &d);
-	stack_push(s, &e);
-	stack_push(s, &f);
 
-	printf("Pilha original: ");
+	printf("\nPilha completa: ");
+	showstack(s);
+	showtop(s);
+
+	printf("\nNova pilha: ");
 	showstack(s);
 
-	inverter(s);
-
-	// printf("\nPilha invertida: ");
-
-	// Imprime a pilha invertida e esvazia
-	// showstack(s);
-
+	printf("\n");
 	stack_delete(&s);
-
 	return 0;
 }
