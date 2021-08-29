@@ -73,7 +73,8 @@ void showqueue(queue_t *queue)
 	printf("[ ");
 	for (it = queue->front; it != NULL; it = it->next)
 	{
-		printf("%d, ", *(int *)it->data);
+		// printf("%d, ", *(int *)it->data);
+		imprime_pessoa((Pessoa *)it->data);
 	}
 	printf("{ NULL } ]");
 }
@@ -95,12 +96,14 @@ int main(void)
 	// Inicializando a fila
 	queue_initialize(&q, construtor_pessoa, destructor_pessoa);
 
-	for (i = 0; i < 5; i++)
+	for (i = 0; i < 3; i++)
 	{
 		printf("Cadastrando pessoa %d\n", i + 1);
 		cadastra_pessoa(&p);
 		queue_push(q, &p);
 	}
+
+	showqueue(q);
 
 	while (!queue_empty(q))
 	{

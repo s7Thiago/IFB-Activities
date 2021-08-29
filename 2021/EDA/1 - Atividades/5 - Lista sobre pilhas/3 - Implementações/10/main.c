@@ -61,6 +61,7 @@ void analise(stack_t *s)
 		// Somando os elementos para calcular a média aritmética
 
 		stack_pop(s);
+		qtde++;
 	}
 	media /= qtde;
 
