@@ -20,10 +20,9 @@
 
 
 
-## 21. Dada as operac¸oes de pilha insere I e remove R, escreva a configuração final da pilha após as seguintes operações: I(10), I(20), R, I(30), I(45), I(21), R, R.
-> * Solução ``30 -> 20``
+## 13. Dada as operac¸oes de pilha insere I e remove R, escreva a configuração final da pilha após as seguintes operações: I(10), I(20), R, I(30), I(45), I(21), R, R.
+> * Solução ``30 -> 10``
 >
-
 
 
 
