@@ -1,7 +1,13 @@
+import 'dart:io';
+
 main() {
+  // ? Esperando o usuário digitar um número
+  print('Rotations: ');
+  int rotations = int.parse(stdin.readLineSync()!);
+
   String secret = 'Hoje temos dia de folga';
-  String encoded = encodeMessage(secret, 4);
-  String decoded = decodeMessage(encoded, 4);
+  String encoded = encodeMessage(secret, rotations);
+  String decoded = decodeMessage(encoded, rotations);
 
   print('\n\nOriginal message: $secret');
   print('ENCODED: ${encoded}');
