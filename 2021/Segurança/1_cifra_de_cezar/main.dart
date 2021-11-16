@@ -5,26 +5,26 @@ main() {
 
   print('\n\nOriginal message: $secret');
   print('ENCODED: ${encoded}');
-  print('Rollback encription: ${decoded}\n\n');
+  print('Rollback encryption: ${decoded}\n\n');
 }
 
+/// ? Percorre a mensagem decodificando cada caracter uma vez que a
+/// ? mesma foi codificada e se conhece o coeficiente de rotação
 String decodeMessage(String message, int rotations) {
   rotations *= -1;
 
-  var rotatedAlphabet = getRotatedAlphabet(rotations);
   var encodedMessage = message.split('');
 
   for (int i = 0; i < message.length; i++) {
     encodedMessage[i] =
         rotateCharacter(encodedMessage[i], rotations)['character'] as String;
-    // print('${encodedMessage[i]}');
   }
 
   return encodedMessage.join();
 }
 
+/// ? Percorre a mensagem decodificando cada caracter com base no coeficiente de rotação
 String encodeMessage(String message, int rotations) {
-  var rotatedAlphabet = getRotatedAlphabet(rotations);
   var encodedMessage = message.split('');
 
   for (int i = 0; i < message.length; i++) {
@@ -37,6 +37,7 @@ String encodeMessage(String message, int rotations) {
   return message;
 }
 
+/// ? Decodifica um caractere de acordo com o coeficiente de rotação
 Map<String, Object> rotateCharacter(String c, int rotation) {
   int code = c.codeUnitAt(0);
   int newCode = code + rotation;
@@ -48,7 +49,7 @@ Map<String, Object> rotateCharacter(String c, int rotation) {
   return {'code': newCode, 'character': String.fromCharCode(newCode)};
 }
 
-/// Retorna um array com todas as letras do alfabeto com rotação aplicada de acordo com o parâmetro
+/// ? Retorna um array com todas as letras do alfabeto com rotação aplicada de acordo com o parâmetro
 Map<String, List<Object>> getRotatedAlphabet(int rotation) {
   List<String> originalAlphabet = getAlphabet();
   List<String> newAlphabet = [];
@@ -64,7 +65,7 @@ Map<String, List<Object>> getRotatedAlphabet(int rotation) {
   return {'alphabet': newAlphabet, 'codes': newAlphabetCodes};
 }
 
-/// Retorna um array com todas as letras originais do alfabeto latino
+/// ? Retorna um array com todas as letras originais do alfabeto latino
 List<String> getAlphabet() {
   List<String> alphabet = [];
 
