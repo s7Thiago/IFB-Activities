@@ -6,13 +6,14 @@ class CalculoIrpf {
 
   CalculoIrpf({
     required this.salario,
-    this.aliquota = 0.00,
-    this.qtdeDependentes = 0,
-    this.parcelaADeduzir = 0.00,
+    required this.aliquota,
+    required this.qtdeDependentes,
+    required this.parcelaADeduzir,
   });
 
   double calcular() {
-    return ((salario * aliquota) - parcelaADeduzir) -
-        (qtdeDependentes * 189.59);
+    double resultado =
+        ((salario * aliquota) - parcelaADeduzir) - (qtdeDependentes * 189.59);
+    return resultado;
   }
 }

@@ -25,10 +25,18 @@ extension MyTextStyles on Text {
     );
   }
 
+  Text inputBoxContentStyle() {
+    return Text(
+      data!,
+      style: contentStyle().style!.copyWith(fontSize: 25),
+    );
+    ;
+  }
+
   Text inputBoxTitleStyle() {
     return Text(
       data!,
-      style: titleStyle().style!.copyWith(fontSize: 20),
+      style: titleStyle().style!.copyWith(fontSize: 15),
     );
   }
 }

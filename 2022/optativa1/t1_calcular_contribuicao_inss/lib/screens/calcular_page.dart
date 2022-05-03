@@ -1,40 +1,42 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:t1_calcular_contribuicao_inss/shared/providers/calc_provider.dart';
 import 'package:t1_calcular_contribuicao_inss/shared/widgets/info_box_widget.dart';
 import 'package:t1_calcular_contribuicao_inss/shared/widgets/input/input_box.dart';
 
-class CalcularPage extends StatefulWidget {
+class CalcularPage extends StatelessWidget {
   const CalcularPage({Key? key}) : super(key: key);
 
   @override
-  _CalcularPageState createState() => _CalcularPageState();
-}
-
-class _CalcularPageState extends State<CalcularPage> {
-  @override
   Widget build(BuildContext context) {
+
+    final totalInss = Provider.of<CalcProvider>(context, listen: true).totalInss;
+    final percentualInss = Provider.of<CalcProvider>(context, listen: true).percentualInss;
+
+    final totalIrpf = Provider.of<CalcProvider>(context, listen: true).totalIrpf;
+    final percentualIrpf = Provider.of<CalcProvider>(context, listen: true).percentualIrpf;
+
     return Scaffold(
       backgroundColor: Colors.purple,
       body: Center(
         child: Wrap(
-          children: const [
+          children: [
             InfoBoxWidget(
-              title: 'Percent. INSS',
-              content: '% 18',
+              title: '% INSS',
+              content: '% ${(percentualInss * 100).toStringAsFixed(2)}',
             ),
             InfoBoxWidget(
-              title: 'Percent. IRPF',
-              content: '% 20',
+              title: '% IRPF',
+              content: '% ${(percentualIrpf * 100).toStringAsFixed(2)}',
               alignment: Alignment.centerRight,
             ),
             InfoBoxWidget(
               title: 'Total INSS',
-              content: '6250.0',
+              content: '${totalInss.toStringAsFixed(2)}',
             ),
             InfoBoxWidget(
               title: 'Total IRPF',
-              content: '5000.0',
+              content: '${totalIrpf.toStringAsFixed(2)}',
               alignment: Alignment.centerRight,
             ),
             InputBox(),

@@ -6,12 +6,14 @@ class CustomInputWidget extends StatelessWidget {
   final String title;
   final String content;
   final Alignment alignment;
+  final void Function(String)? onChanged;
 
   const CustomInputWidget({
     Key? key,
     this.title = '',
     required this.content,
     this.alignment = Alignment.centerLeft,
+    this.onChanged,
   }) : super(key: key);
 
   @override
@@ -21,7 +23,7 @@ class CustomInputWidget extends StatelessWidget {
       alignment: alignment,
       padding: const EdgeInsets.only(
         top: 10,
-        left: 20,
+        left: 10,
         right: 20,
       ),
       height: MediaQuery.of(context).size.height * .1,
@@ -31,7 +33,13 @@ class CustomInputWidget extends StatelessWidget {
           const SizedBox(width: 25),
           Expanded(
             child: TextField(
-              style: const Text('').contentStyle().style,
+              style: const Text('').inputBoxContentStyle().style,
+              keyboardType: TextInputType.number,
+              cursorColor: "c45cf5".toColor(),
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+              ),
+              onChanged: onChanged,
             ),
           ),
         ],

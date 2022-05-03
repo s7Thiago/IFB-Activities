@@ -33,7 +33,7 @@ class InfoBoxWidget extends StatelessWidget {
         children: [
           Text(title).titleStyle(),
           const SizedBox(height: 20),
-          Text(content).contentStyle(),
+          FittedBox(child: Text(content).contentStyle()),
         ],
       ),
       decoration: BoxDecoration(
