@@ -28,12 +28,17 @@ class _HomeState extends State<Home> {
     service: AdressServiceImpl(repository: AddressRepositoryImpl()),
   );
 
-
   @override
   Widget build(BuildContext ctx) {
     return FutureBuilder(
         future: controller.address,
         builder: (BuildContext ctx, AsyncSnapshot<Address> data) {
+          if (data.hasError) {
+            return Center(
+              child: const Text('Erro'),
+            );
+          }
+
           if (!data.hasData) {
             return Container(
               height: double.maxFinite,
@@ -165,7 +170,10 @@ class AdressPart extends StatelessWidget {
 class CustomInput extends StatelessWidget {
   final TextEditingController controller;
 
-  const CustomInput({Key? key, required this.controller,}) : super(key: key);
+  const CustomInput({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
