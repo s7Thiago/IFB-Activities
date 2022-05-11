@@ -32,11 +32,11 @@ class CalcularPage extends StatelessWidget {
             ),
             InfoBoxWidget(
               title: 'Total INSS',
-              content: '${totalInss.toStringAsFixed(2)}',
+              content: totalInss.toStringAsFixed(2),
             ),
             InfoBoxWidget(
               title: 'Total IRPF',
-              content: '${totalIrpf.toStringAsFixed(2)}',
+              content: totalIrpf.toStringAsFixed(2),
               alignment: Alignment.centerRight,
             ),
             InputBox(),
