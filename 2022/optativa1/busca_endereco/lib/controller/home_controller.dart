@@ -3,12 +3,12 @@ import 'package:busca_endereco/service/adress_service.dart';
 
 class HomeController {
   final AdressService service;
-  final String cep;
+  String _cep = '';
 
-  Future<Address> get address => service.getEndereco(cep);
+  Future<Address> get address => service.getEndereco(_cep);
+  set cep (String newCep) => _cep = newCep;
 
   HomeController({
     required this.service,
-    required this.cep,
   });
 }

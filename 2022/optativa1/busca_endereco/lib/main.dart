@@ -23,10 +23,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final inputController = TextEditingController();
   final controller = HomeController(
     service: AdressServiceImpl(repository: AddressRepositoryImpl()),
     cep: '71919180',
   );
+
 
   @override
   Widget build(BuildContext ctx) {
@@ -65,7 +67,7 @@ class _HomeState extends State<Home> {
                   alignment: Alignment.center,
                   children: [
                     Positioned(
-                      child: CustomInput(),
+                      child: CustomInput(controller: inputController),
                     ),
                     Positioned(
                       left: MediaQuery.of(context).size.width * .63,
@@ -162,6 +164,10 @@ class AdressPart extends StatelessWidget {
 
 // ===================== custom input =====================
 class CustomInput extends StatelessWidget {
+  final TextEditingController controller;
+
+  const CustomInput({Key? key, required this.controller,}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -170,13 +176,14 @@ class CustomInput extends StatelessWidget {
       alignment: Alignment.center,
       height: 50,
       width: MediaQuery.of(context).size.width * .5,
-      child: const TextField(
+      child: TextField(
+        controller: controller,
         cursorColor: Colors.white,
         maxLength: 8,
         maxLines: 1,
         cursorHeight: 25,
-        style: TextStyle(color: Colors.white),
-        decoration: InputDecoration(border: InputBorder.none),
+        style: const TextStyle(color: Colors.white),
+        decoration: const InputDecoration(border: InputBorder.none),
       ),
       decoration: const BoxDecoration(
           color: Colors.blueGrey,
