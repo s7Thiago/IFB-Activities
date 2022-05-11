@@ -26,7 +26,6 @@ class _HomeState extends State<Home> {
   final inputController = TextEditingController();
   final controller = HomeController(
     service: AdressServiceImpl(repository: AddressRepositoryImpl()),
-    cep: '71919180',
   );
 
 
