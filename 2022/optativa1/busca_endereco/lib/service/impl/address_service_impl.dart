@@ -1,12 +1,12 @@
 import 'package:busca_endereco/model/address.dart';
 import 'package:busca_endereco/repository/address_repository.dart';
-import 'package:busca_endereco/service/adress_service.dart';
+import 'package:busca_endereco/service/address_service.dart';
 
-class AdressServiceImpl implements AdressService{
+class AddressServiceImpl implements AddressService{
 
-  final AdressRepository repository;
+  final AddressRepository repository;
 
-  AdressServiceImpl({required this.repository});
+  AddressServiceImpl({required this.repository});
 
 
   @override
