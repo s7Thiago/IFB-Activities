@@ -12,47 +12,49 @@ class AppBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          AddressPart(
-            title: 'logradouro',
-            content: address.logradouro!,
-          ),
-          AddressPart(
-            title: 'complemento',
-            content: address.complemento!,
-          ),
-          AddressPart(
-            title: 'bairro',
-            content: address.bairro!,
-          ),
-          AddressPart(
-            title: 'localidade',
-            content: address.localidade!,
-          ),
-          AddressPart(
-            title: 'uf',
-            content: address.uf!,
-          ),
-          AddressPart(
-            title: 'IBGE',
-            content: address.ibge!,
-          ),
-          AddressPart(
-            title: 'gia',
-            content: address.gia!,
-          ),
-          AddressPart(
-            title: 'ddd',
-            content: address.ddd!,
-          ),
-          AddressPart(
-            title: 'siafi',
-            content: address.siafi!,
-          ),
-        ],
+    return SingleChildScrollView(
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            AddressPart(
+              title: 'logradouro',
+              content: address.logradouro!,
+            ),
+            AddressPart(
+              title: 'complemento',
+              content: address.complemento!,
+            ),
+            AddressPart(
+              title: 'bairro',
+              content: address.bairro!,
+            ),
+            AddressPart(
+              title: 'localidade',
+              content: address.localidade!,
+            ),
+            AddressPart(
+              title: 'uf',
+              content: address.uf!,
+            ),
+            AddressPart(
+              title: 'IBGE',
+              content: address.ibge!,
+            ),
+            AddressPart(
+              title: 'gia',
+              content: address.gia!,
+            ),
+            AddressPart(
+              title: 'ddd',
+              content: address.ddd!,
+            ),
+            AddressPart(
+              title: 'siafi',
+              content: address.siafi!,
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -14,7 +14,7 @@ class AddressPart extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(title),
-      subtitle: Text(content),
+      subtitle: Text(content.isEmpty? '- - - - -' : content),
     );
   }
 }

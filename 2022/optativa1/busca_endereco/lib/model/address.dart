@@ -11,16 +11,16 @@ class Address {
   String? siafi;
 
   Address(
-      {this.cep,
-      this.logradouro,
-      this.complemento,
-      this.bairro,
-      this.localidade,
-      this.uf,
-      this.ibge,
-      this.gia,
-      this.ddd,
-      this.siafi});
+      {this.cep = '',
+      this.logradouro = '',
+      this.complemento = '',
+      this.bairro = '',
+      this.localidade = '',
+      this.uf = '',
+      this.ibge = '',
+      this.gia = '',
+      this.ddd = '',
+      this.siafi = ''});
 
   Address.fromJson(Map<String, dynamic> json) {
     cep = json['cep'];

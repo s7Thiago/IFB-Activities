@@ -69,7 +69,12 @@ class _HomeState extends State<Home> {
                 leading: const Icon(Icons.map),
                 elevation: 0,
               ),
-              body: AppBody(address: data.data!),
+              body: ValueListenableBuilder<Address>(
+                valueListenable: controller.addressNotifier,
+                builder: (context, value, _) {
+                  return AppBody(address: value);
+                }
+              ),
               bottomNavigationBar: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Stack(
@@ -82,7 +87,11 @@ class _HomeState extends State<Home> {
                     Positioned(
                       left: MediaQuery.of(context).size.width * .63,
                       child: FloatingActionButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          controller.cep = inputController.text;
+                          inputController.clear();
+                          setState(() {});
+                        },
                         child: const Icon(Icons.search),
                       ),
                     )
