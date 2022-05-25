@@ -2,9 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:t2_persistencia_interna/model/task.dart';
-import 'package:t2_persistencia_interna/repository/impl/TasksRepositoryImpl.dart';
-import 'package:t2_persistencia_interna/service/impl/task-service_impl.dart';
-import 'package:t2_persistencia_interna/service/tasks_service.dart';
+import 'package:t2_persistencia_interna/pages/home/home_controller.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -13,7 +11,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final _newTaskTextController = TextEditingController();
-  TasksService service = TasksServiceImpl(repository: TasksRepositoryimpl());
+  final controller = HomeController();
   Map<String, dynamic>? _lastRemoved;
   List _tasks = [];
 
@@ -21,7 +19,7 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
 
-    service.readTasks().then((res) {
+    controller.service.readTasks().then((res) {
       print('Tarefas: $res');
       setState(() {
         _tasks = json.decode(res);
@@ -61,11 +59,13 @@ class _HomeState extends State<Home> {
                   // Converting the new task to json for store on file
                   newTask = task.toJson();
 
-                  // Cleaning up text field
+                  // Cleaning up text field content
                   _newTaskTextController.text = '';
 
+                  // inserting new task on the list
                   _tasks.add(newTask);
 
+                  // Updating database file with new task
                   service.saveTasks(_tasks);
 
                 });
