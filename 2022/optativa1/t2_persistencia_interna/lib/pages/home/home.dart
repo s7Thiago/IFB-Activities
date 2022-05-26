@@ -13,16 +13,15 @@ class _HomeState extends State<Home> {
   final _newTaskTextController = TextEditingController();
   final controller = HomeController();
   Map<String, dynamic>? _lastRemoved;
-  List _tasks = [];
 
   @override
   void initState() {
     super.initState();
 
-    controller.service.readTasks().then((res) {
+    controller.service.readTasks().then((String res) {
       print('Tarefas: $res');
       setState(() {
-        _tasks = json.decode(res);
+        controller.tasks = json.decode(res);
       });
     });
   }
@@ -63,10 +62,10 @@ class _HomeState extends State<Home> {
                   _newTaskTextController.text = '';
 
                   // inserting new task on the list
-                  _tasks.add(newTask);
+                  controller.tasks.add(newTask);
 
                   // Updating database file with new task
-                  controller.service.saveTasks(_tasks);
+                  controller.service.saveTasks(controller.tasks);
 
                 });
               },
