@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
                   _tasks.add(newTask);
 
                   // Updating database file with new task
-                  service.saveTasks(_tasks);
+                  controller.service.saveTasks(_tasks);
 
                 });
               },

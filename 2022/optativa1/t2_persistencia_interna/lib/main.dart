@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:t2_persistencia_interna/pages/home.dart';
+import 'package:t2_persistencia_interna/pages/home/home.dart';
 
 void main() {
   runApp(App());
