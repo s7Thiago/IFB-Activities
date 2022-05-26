@@ -1,17 +1,19 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:t2_persistencia_interna/model/task.dart';
 import 'package:t2_persistencia_interna/pages/home/home_controller.dart';
 
 class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
   @override
-  _HomeState createState() => _HomeState();
+  createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
   final controller = HomeController();
-  Map<String, dynamic>? _lastRemoved;
 
   @override
   void initState() {

@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:t2_persistencia_interna/model/task.dart';
-import 'package:t2_persistencia_interna/repository/impl/TasksRepositoryImpl.dart';
-import 'package:t2_persistencia_interna/service/impl/task-service_impl.dart';
+import 'package:t2_persistencia_interna/repository/impl/tasks_repository_impl.dart';
+import 'package:t2_persistencia_interna/service/impl/task_service_impl.dart';
 
 class HomeController extends ChangeNotifier {
   List _tasks = [];
+  Map<String, dynamic>? _lastRemoved;
   final _newTaskTextController = TextEditingController();
 
   get service => TasksServiceImpl(repository: TasksRepositoryimpl());
