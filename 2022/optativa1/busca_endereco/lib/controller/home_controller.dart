@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class HomeController {
   final AddressService service;
-  String _cep = '71919180';
+  String _cep = '';
   ValueNotifier<Address> addressNotifier = ValueNotifier<Address>(Address());
 
   set cep (String newCep) {
