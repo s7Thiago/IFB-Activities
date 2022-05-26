@@ -10,7 +10,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final _newTaskTextController = TextEditingController();
   final controller = HomeController();
   Map<String, dynamic>? _lastRemoved;
 
@@ -39,7 +38,7 @@ class _HomeState extends State<Home> {
             Expanded(
               child: TextField(
                 maxLines: 1,
-                controller: _newTaskTextController,
+                controller: controller.textController,
                 decoration: const InputDecoration(labelText: 'New Task'),
               ),
             ),
@@ -51,7 +50,7 @@ class _HomeState extends State<Home> {
 
                   // A new task
                   Task task = Task(
-                    taskName: _newTaskTextController.text,
+                    taskName: controller.textController.text,
                     isCompleted: false,
                   );
 
@@ -59,7 +58,7 @@ class _HomeState extends State<Home> {
                   newTask = task.toJson();
 
                   // Cleaning up text field content
-                  _newTaskTextController.text = '';
+                  controller.textController.text = '';
 
                   // inserting new task on the list
                   controller.tasks.add(newTask);
