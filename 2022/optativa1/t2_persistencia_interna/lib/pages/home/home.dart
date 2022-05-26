@@ -28,7 +28,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Task List'), centerTitle: true),
+      appBar: AppBar(title: const Text('Task List'), centerTitle: true),
       bottomNavigationBar: Container(
         height: 80,
         width: 500,
@@ -43,35 +43,12 @@ class _HomeState extends State<Home> {
               ),
             ),
             const SizedBox(width: 20),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  Map<String, dynamic> newTask = {};
-
-                  // A new task
-                  Task task = Task(
-                    taskName: controller.textController.text,
-                    isCompleted: false,
-                  );
-
-                  // Converting the new task to json for store on file
-                  newTask = task.toJson();
-
-                  // Cleaning up text field content
-                  controller.textController.text = '';
-
-                  // inserting new task on the list
-                  controller.tasks.add(newTask);
-
-                  // Updating database file with new task
-                  controller.service.saveTasks(controller.tasks);
-
-                });
-              },
+            FloatingActionButton(
+              onPressed: () => setState(controller.addNewTask),
+              // style: ButtonStyle(
+              //   minimumSize: MaterialStateProperty.all(const Size(50, 50)),
+              // ),
               child: const Icon(Icons.add),
-              style: ButtonStyle(
-                minimumSize: MaterialStateProperty.all(const Size(100, 50)),
-              ),
             ),
           ],
         ),
