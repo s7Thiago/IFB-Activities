@@ -31,6 +31,11 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Task List'), centerTitle: true),
+      body: ListView.builder(
+        itemCount: controller.tasks.length,
+        itemBuilder: (ctx, index) {
+          return Text('${controller.tasks[index]}');
+      }),
       bottomNavigationBar: Container(
         height: 80,
         width: 500,

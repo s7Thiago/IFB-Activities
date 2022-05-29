@@ -21,22 +21,22 @@ class HomeController extends ChangeNotifier {
   void addNewTask() {
     Map<String, dynamic> newTask = {};
 
-                  // A new task
-                  Task task = Task(
-                    taskName: textController.text,
-                    isCompleted: false,
-                  );
+    // A new task
+    Task task = Task(
+      taskName: textController.text,
+      isCompleted: false,
+    );
 
-                  // Converting the new task to json for store on file
-                  newTask = task.toJson();
+    // Converting the new task to json for store on file
+    newTask = task.toJson();
 
-                  // Cleaning up text field content
-                  textController.text = '';
+    // Cleaning up text field content
+    textController.text = '';
 
-                  // inserting new task on the list
-                  tasks.add(newTask);
+    // inserting new task on the list
+    tasks.add(newTask);
 
-                  // Updating database file with new task
-                  service.saveTasks(tasks);
+    // Updating database file with new task
+    service.saveTasks(tasks);
   }
 }
