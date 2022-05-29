@@ -12,7 +12,7 @@ class HomeController extends ChangeNotifier {
   List get tasks => _tasks;
   get textController => _newTaskTextController;
 
-  // set tasks
+  /// set tasks
   set tasks(List tasks) {
     _tasks = tasks;
     notifyListeners();
@@ -28,7 +28,7 @@ class HomeController extends ChangeNotifier {
     );
 
     // Converting the new task to json for store on file
-    newTask = task.toJson();
+    newTask = task.toMap();
 
     // Cleaning up text field content
     textController.text = '';
@@ -39,4 +39,17 @@ class HomeController extends ChangeNotifier {
     // Updating database file with new task
     service.saveTasks(tasks);
   }
+
+  /// Sort tasks placing the completed tasks at the top
+  /// and the uncompleted tasks at the bottom
+  Future<void> sortTasks() async {
+    await Future.delayed(const Duration(milliseconds: 1000));
+    tasks.sort((a, b) {
+      if (a['concluida'] && !b['concluida']) return 1;
+      if (!a['concluida'] && b['concluida']) return -1;
+      return 0;
+    });
+    service.saveTasks(tasks);
+  }
+
 }
