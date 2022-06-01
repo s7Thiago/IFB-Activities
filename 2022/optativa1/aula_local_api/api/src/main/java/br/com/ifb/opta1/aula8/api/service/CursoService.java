@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.ifb.opta1.aula8.api.domain.Curso;
+import br.com.ifb.opta1.aula8.api.enums.ModalidadeEnum;
 import br.com.ifb.opta1.aula8.api.repository.CursoRepository;
 
 @Service
@@ -34,5 +35,9 @@ public class CursoService {
     public void deleteById(Long id) {
         cursoRepository.deleteById(id);
     }
+
+    public List<Curso> findByModalidade(ModalidadeEnum modalidade){
+        return (List<Curso>) cursoRepository.findByModalidade(modalidade);
+        }
 
 }

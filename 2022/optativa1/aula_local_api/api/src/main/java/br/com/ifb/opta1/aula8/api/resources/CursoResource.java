@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.ifb.opta1.aula8.api.domain.Curso;
+import br.com.ifb.opta1.aula8.api.enums.ModalidadeEnum;
 import br.com.ifb.opta1.aula8.api.service.CursoService;
 
 @RestController
@@ -60,6 +61,12 @@ public class CursoResource {
                     return ResponseEntity.ok().body(updated);
 
                 }).orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping(path = { "modalidade/{modalidade}" })
+    public ResponseEntity<?> findByModalidade(@PathVariable("modalidade") ModalidadeEnum modalidade) {
+        List<Curso> cursos = cursoService.findByModalidade(modalidade);
+        return cursos.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(cursos);
     }
 
 }
