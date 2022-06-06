@@ -1,0 +1,2 @@
+docker run --name postgres-aula8 -e POSTGRES_USER=aula8 -e POSTGRES_PASSWORD=opta1 -e POSTGRES_DATABASE=aula8 -e POSTGRES_ADMIN=afb@prog3 -p 5432:5432 -d postgres:alpine3.14
+
