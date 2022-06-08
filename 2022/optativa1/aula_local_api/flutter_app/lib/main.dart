@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/http/logging_interceptor.dart';
+import 'package:web_api/view/lista_cursos.dart';
 
 void main() {
-  findAll().then((cursos) => debugPrint('Cursos $cursos'));
-  runApp(const App());
+  runApp(CursoApp());
 }
 
-class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
-
+class CursoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      routes: {
-        
-      },
+    return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.orange[800],
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          secondary: Colors.orange[800], // Your accent color
+        ),
+        buttonTheme: ButtonThemeData(
+          buttonColor: Colors.orange[800],
+          textTheme: ButtonTextTheme.primary,
+        ),
+      ),
+      home: ListaCurso(),
     );
   }
 }

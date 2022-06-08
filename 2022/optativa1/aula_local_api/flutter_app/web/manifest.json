@@ -1,6 +1,6 @@
 {
-    "name": "flutter_app",
-    "short_name": "flutter_app",
+    "name": "web_api",
+    "short_name": "web_api",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

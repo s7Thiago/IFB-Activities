@@ -1,8 +1,4 @@
-import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
-import 'package:flutter_app/model/curso.dart';
-import 'package:http/http.dart';
 import 'package:http_interceptor/http_interceptor.dart';
 
 class LoggingInterceptor implements InterceptorContract {
@@ -29,33 +25,4 @@ class LoggingInterceptor implements InterceptorContract {
     }
     return data!;
   }
-}
-
-Future<List<Curso>> findAll() async {
-  final Client client = InterceptedClient.build(
-    interceptors: [LoggingInterceptor()],
-  );
-
-  final Response response = await client.get(
-    Uri.http('localhost:8080', 'api/v1/cursos'),
-    headers: {
-      "Access-Control-Allow-Origin" : "*",
-    }
-  );
-
-  final List<dynamic> decodedJson = jsonDecode(utf8.decode(response.bodyBytes));
-
-  final List<Curso> cursos = [];
-
-  for (Map<String, dynamic> cursoJson in decodedJson) {
-    final Curso curso = Curso(
-      cursoJson['nome'],
-      cursoJson['cargaHoraria'],
-      cursoJson['modalidade'],
-      id: cursoJson['id'],
-    );
-
-    cursos.add(curso);
-  }
-  return cursos;
 }
