@@ -21,6 +21,8 @@ public class CursoService {
     }
 
     public List<Curso> findAll() {
+        // List<Curso> cursos = (List<Curso>) cursoRepository.findAll();
+
         return (List<Curso>) cursoRepository.findAll();
     }
 
@@ -36,8 +38,8 @@ public class CursoService {
         cursoRepository.deleteById(id);
     }
 
-    public List<Curso> findByModalidade(ModalidadeEnum modalidade){
+    public List<Curso> findByModalidade(ModalidadeEnum modalidade) {
         return (List<Curso>) cursoRepository.findByModalidade(modalidade);
-        }
+    }
 
 }

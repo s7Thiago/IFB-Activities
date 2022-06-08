@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import br.com.ifb.opta1.aula8.api.enums.ModalidadeEnum;
-import lombok.Data;
 
 @Entity
 public class Curso implements Serializable {
@@ -24,6 +23,10 @@ public class Curso implements Serializable {
 
     @Enumerated(EnumType.STRING)
     private ModalidadeEnum modalidade;
+
+    public Long getId() {
+        return id;
+    }
 
     public String getNome() {
         return nome;

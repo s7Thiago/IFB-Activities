@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart';
 import 'package:http_interceptor/http_interceptor.dart';
-import 'package:web_api/http/web_client.dart';
+import 'package:web_api/http/interceptor/logging_interceptor.dart';
 
 class Curso {
   int? id;

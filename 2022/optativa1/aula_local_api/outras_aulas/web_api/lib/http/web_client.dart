@@ -1,28 +1,8 @@
-import 'package:flutter/foundation.dart';
 import 'package:http_interceptor/http_interceptor.dart';
+import 'package:http/http.dart';
+import 'interceptor/logging_interceptor.dart';
 
-class LoggingInterceptor implements InterceptorContract {
-  @override
-  Future<RequestData> interceptRequest({RequestData? data}) async {
-    if (data != null) {
-      debugPrint('Request');
-      debugPrint('url: ${data.url}');
-      debugPrint('headers: ${data.headers}');
-      debugPrint('body: ${data.body}');
-      return data;
-    }
-    return data!;
-  }
-
-  @override
-  Future<ResponseData> interceptResponse({ResponseData? data}) async {
-    if (data != null) {
-      debugPrint('Response');
-      debugPrint('status code: ${data.statusCode}');
-      debugPrint('headers: ${data.headers}');
-      debugPrint('body: ${data.body}');
-      return data;
-    }
-    return data!;
-  }
-}
+final Client client =
+    InterceptedClient.build(interceptors: [LoggingInterceptor()]);
+const String baseUrl = '192.168.59.108:8080';
+const String api = 'api/v1/cursos';
