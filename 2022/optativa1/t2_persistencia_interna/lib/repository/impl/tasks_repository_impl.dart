@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:t2_persistencia_interna/repository/tasks_repository.dart';
 
-class TasksRepositoryimpl implements TasksRepository {
+class TasksRepositoryImpl implements TasksRepository {
   @override
   Future<File> createTasksFile() async {
     final dir = await getApplicationDocumentsDirectory();

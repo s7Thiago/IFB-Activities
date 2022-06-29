@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:t2_persistencia_interna/model/task.dart';
 import 'package:t2_persistencia_interna/pages/home/home_controller.dart';
+import 'package:t2_persistencia_interna/widgets/dismissible_item.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -32,12 +33,19 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Task List'), centerTitle: true),
-      body: ListView.builder(
-        itemCount: controller.tasks.length,
-        itemBuilder: (ctx, index) {
-          Task task = Task.fromMap(controller.tasks[index]);
-          return Text('$task');
-      }),
+      body: RefreshIndicator(
+        onRefresh: controller.sortTasks,
+        child: ListView.builder(
+            itemCount: controller.tasks.length,
+            itemBuilder: (ctx, index) {
+              Task task = Task.fromMap(controller.tasks[index]);
+              return DismissibleItem(
+                task: task,
+                homeController: controller,
+                index: index,
+              );
+            }),
+      ),
       bottomNavigationBar: Container(
         height: 80,
         width: 500,

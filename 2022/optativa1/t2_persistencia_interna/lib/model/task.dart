@@ -2,10 +2,10 @@ import 'dart:convert';
 
 class Task {
   final String taskName;
-  final bool isCompleted;
+  bool isCompleted;
   Task({
     required this.taskName,
-    required this.isCompleted,
+    this.isCompleted = false,
   });
 
   Task copyWith({
