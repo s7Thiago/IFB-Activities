@@ -1,0 +1,24 @@
+╰─$ flutterfire configure --project=aula-ifb
+i Found 6 Firebase projects. Selecting project aula-ifb.
+✔ Which platforms should your configuration support (use arrow keys & space to select)? · android, ios, macos, web 
+i Firebase android app br.com.optativa1.cursofirebase.crud_firebase is not registered on Firebase project aula-ifb.
+i Registered a new Firebase android app on Firebase project aula-ifb.
+i Firebase ios app br.com.optativa1.cursofirebase.crudFirebase is not registered on Firebase project aula-ifb.
+i Registered a new Firebase ios app on Firebase project aula-ifb.
+i Firebase macos app br.com.optativa1.cursofirebase.crudFirebase registered.
+i Firebase web app crud_firebase (web) is not registered on Firebase project aula-ifb.
+i Registered a new Firebase web app on Firebase project aula-ifb.
+? The files android/build.gradle & android/app/build.gradle will be updated to apply Firebase configuration and gra
+? The files android/build.gradle & android/app/build.gradle will be updated to apply Firebase configuration and gra
+✔ The files android/build.gradle & android/app/build.gradle will be updated to apply Firebase configuration and gradle build plugins. Do you want to continue? · yes 
+
+Firebase configuration file lib/firebase_options.dart generated successfully with the following Firebase apps:
+
+Platform  Firebase App Id
+web       1:952177932554:web:3e63a0c82d5a350894e2f3
+android   1:952177932554:android:9665a058a223160394e2f3
+ios       1:952177932554:ios:4c6c96eec49d1e6a94e2f3
+macos     1:952177932554:ios:4c6c96eec49d1e6a94e2f3
+
+Learn more about using this file and next steps from the documentation:
+ > https://firebase.google.com/docs/flutter/setup

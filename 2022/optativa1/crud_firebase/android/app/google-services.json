@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "952177932554",
+    "project_id": "aula-ifb",
+    "storage_bucket": "aula-ifb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952177932554:android:9665a058a223160394e2f3",
+        "android_client_info": {
+          "package_name": "br.com.optativa1.cursofirebase.crud_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "952177932554-6lta12dfqo4v3l8jip04gnnr5bidaae2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaXtZTZiXmab1_f3ZKv9ONg0MeAsuqfHk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "952177932554-6lta12dfqo4v3l8jip04gnnr5bidaae2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
